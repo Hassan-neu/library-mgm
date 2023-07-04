@@ -1,6 +1,9 @@
-import React from "react";
-
+"use client";
+import React, { useState } from "react";
+import { IoCheckmarkCircleOutline } from "react-icons/io5";
+import { MdOutlineCancel } from "react-icons/md";
 const Bookloan = () => {
+    const [returned, setReturned] = useState(false);
     return (
         <div className="flex justify-between px-6 py-4 bg-dirtyWhite items-center rounded-md">
             <div className="text-myGreen font-semibold">Book name</div>
@@ -18,9 +21,18 @@ const Bookloan = () => {
             </div>
             <div className="flex flex-col items-center text-sm">
                 <h4 className="text-myOrange font-semibold">Status</h4>
-                <p className="text-myGreen font-semibold border-2 border-myGreen rounded-md px-2 py-1">
-                    Returned
-                </p>
+                <button
+                    onClick={() => setReturned(!returned)}
+                    className={` font-semibold ${
+                        returned ? "text-myGreen" : "text-myYellow"
+                    } rounded-md px-2 py-1`}
+                >
+                    {returned ? (
+                        <IoCheckmarkCircleOutline size={20} />
+                    ) : (
+                        <MdOutlineCancel size={20} />
+                    )}
+                </button>
             </div>
             <div className="flex flex-col items-center text-sm">
                 <h4 className="text-myOrange font-semibold">Fine</h4>
