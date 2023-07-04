@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "./button";
+import Link from "next/link";
 const Navbar = () => {
     return (
         <div className="flex items-center px-8 py-6 bg-dirtyWhite text-myGreen font-semibold gap-3">
@@ -7,10 +8,10 @@ const Navbar = () => {
                 University&apos;s Library
             </div>
             <Button bg="myGreen" color="myYellow">
-                Add Book
+                <Link href={"/books/add"}>Add Book</Link>
             </Button>
             <Button bg="myOrange" color="dirtyWhite">
-                Check User
+                <Link href={"/check"}>Check User</Link>
             </Button>
         </div>
     );
