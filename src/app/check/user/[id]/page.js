@@ -40,7 +40,16 @@ const Page = ({ params: { id } }) => {
                                 <Bookloan />
                             </>
                         )}
-                        {tab === "Library Log" && <History />}
+                        {tab === "Library Log" && (
+                            <>
+                                <History />
+                                <History />
+                                <History />
+                                <History />
+                                <History />
+                                <History />
+                            </>
+                        )}
                     </div>
                 </div>
             </div>
