@@ -1,9 +1,10 @@
 "use client";
 import React, { useCallback, useEffect, useState } from "react";
-import Profilecard from "@/components/profilecard";
-import TabBtn from "@/components/tabbtn";
-import Bookloan from "@/components/bookloan";
-import History from "@/components/history";
+import Profilecard from "./profilecard";
+import TabBtn from "./tabbtn";
+import Bookloan from "./bookloan";
+import History from "./history";
+import Button from "./button";
 const UserPage = ({ session }) => {
     const [tab, setTab] = useState("Loan History");
     return (
@@ -13,6 +14,14 @@ const UserPage = ({ session }) => {
                     STUDENT PROFILE
                 </div>
                 <Profilecard data={session} />
+                <div className="flex gap-3 self-end">
+                    <Button className="py-2 px-4 bg-myYellow text-myGreen rounded-md">
+                        Check In
+                    </Button>
+                    <Button className="py-2 px-4 bg-myGreen text-myYellow rounded-md">
+                        Check Out
+                    </Button>
+                </div>
                 <div className="flex flex-col gap-4">
                     <div className="flex gap-4  uppercase">
                         <TabBtn

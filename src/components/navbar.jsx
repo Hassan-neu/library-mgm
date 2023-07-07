@@ -7,10 +7,10 @@ const Navbar = () => {
             <div className="font-bold text-2xl mr-auto">
                 University&apos;s Library
             </div>
-            <Button bg="myGreen" color="myYellow">
+            <Button className="py-2 px-8 bg-myGreen text-myYellow rounded-md">
                 <Link href={"/books/add"}>Add Book</Link>
             </Button>
-            <Button bg="myOrange" color="dirtyWhite">
+            <Button className="py-2 px-8 bg-myOrange text-dirtyWhite rounded-md">
                 <Link href={"/check"}>Check User</Link>
             </Button>
         </div>

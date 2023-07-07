@@ -6,14 +6,15 @@ import SignIn from "@/components/signIn";
 import UserPage from "@/components/userPage";
 export default async function Home() {
     const session = await getServerSession(AuthOptions);
+    if (!session) {
+        return <SignIn />;
+    }
     return (
         <main className="flex min-h-screen">
             {session.user.role === "ADMIN" ? (
                 <BooksPage />
-            ) : session.user.role !== "ADMIN" ? (
-                <UserPage session={session} />
             ) : (
-                <SignIn />
+                <UserPage session={session} />
             )}
         </main>
     );

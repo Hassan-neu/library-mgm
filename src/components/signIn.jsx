@@ -23,13 +23,13 @@ const SignIn = () => {
     }
     return (
         <div className="w-screen h-screen bg-[url('/background/library.jpg')] bg-center bg-cover flex items-center justify-center">
-            <div className=" h-full w-1/2 flex items-center ml-auto px-16 bg-myGreen">
+            <div className=" h-full w-1/2 flex items-center ml-auto px-16">
                 <div className="w-4/5 flex flex-col items-start justify-center gap-3">
-                    <div className="text-dirtyWhite text-2xl">
+                    <div className="text-dirtyWhite text-3xl font-extrabold">
                         <h3>LOGIN</h3>
                     </div>
-                    <div className="text-white">
-                        <p>Welcome Librarian</p>
+                    <div className="text-white text-lg">
+                        <p>Welcome to the Library</p>
                     </div>
                     <form
                         className="flex flex-col gap-6 w-full h-full text-dirtyWhite"
