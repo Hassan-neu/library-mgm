@@ -36,31 +36,34 @@ export const AuthOptions = {
             }
 
             return {
-                id: token.id,
-                firtName: token.firstName,
-                lastName: token.lastName,
-                level: token.level,
-                libId: token.libId,
-                department: token.department,
-                faculty: token.faculty,
-                picture: token.image,
-                role: token.role,
+                id: dbUser.id,
+                firtName: dbUser.firstName,
+                lastName: dbUser.lastName,
+                level: dbUser.level,
+                libId: dbUser.libId,
+                department: dbUser.department,
+                faculty: dbUser.faculty,
+                picture: dbUser.image,
+                role: dbUser.role,
             };
         },
     },
     providers: [
         CredentialsProvider({
             async authorize(req, credentials) {
-                const { loginId, password } = credentials;
-                const user = await prisma.user.findFirst({
+                const { loginId, password } = credentials.body;
+                const user = await prisma.user.findUnique({
                     where: {
                         libId: loginId,
                     },
                 });
-                if (!checkUser) throw new Error("User no found");
+                if (!user) {
+                    throw new Error("User no found");
+                }
                 const checkPassword = user.lastName === password;
-                if (!checkPassword || !user)
+                if (!checkPassword || !user) {
                     throw new Error("Password or Login ID incorrect");
+                }
                 return user;
             },
         }),

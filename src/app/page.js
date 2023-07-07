@@ -1,6 +1,30 @@
+"use client";
 import Image from "next/image";
-
+import React, { useState } from "react";
+import { signIn } from "next-auth/react";
+import { useFormik } from "formik";
+import { useRouter } from "next/navigation";
 export default function Home() {
+    // const [loginId, setLoginId] = useState("");
+    // const [password, setPassword] = useState("");
+    const router = useRouter();
+    const formik = useFormik({
+        initialValues: {
+            loginId: "",
+            password: "",
+        },
+        onSubmit,
+    });
+    async function onSubmit(values) {
+        const data = await signIn("credentials", {
+            redirect: false,
+            loginId: values.loginId,
+            password: values.password,
+            callbackUrl: "/books",
+        });
+        data.status && router.push(data.url);
+    }
+
     return (
         <main className="flex min-h-screen">
             <div className="w-screen h-screen bg-[url('/background/library.jpg')] bg-center bg-cover flex items-center justify-center">
@@ -12,18 +36,25 @@ export default function Home() {
                         <div className="text-white">
                             <p>Welcome Librarian</p>
                         </div>
-                        <form className="flex flex-col gap-6 w-full h-full text-dirtyWhite">
+                        <form
+                            className="flex flex-col gap-6 w-full h-full text-dirtyWhite"
+                            onSubmit={formik.handleSubmit}
+                        >
                             <input
                                 type="text"
-                                id="staffId"
+                                name="loginId"
+                                id="loginId"
                                 placeholder="Login ID"
                                 className="py-2 px-4 rounded-lg bg-transparent border-2 border-dirtyWhite focus:outline-none"
+                                {...formik.getFieldProps("loginId")}
                             />
                             <input
                                 type="password"
+                                name="password"
                                 id="password"
                                 placeholder="Password"
                                 className="py-2 px-4 rounded-lg bg-transparent border-2 border-dirtyWhite focus:outline-none"
+                                {...formik.getFieldProps("password")}
                             />
                             <button
                                 type="submit"
