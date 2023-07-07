@@ -13,7 +13,7 @@ export const AuthOptions = {
         async session({ session, token }) {
             if (token) {
                 session.user.id = token.id;
-                session.user.firtName = token.firstName;
+                session.user.firstName = token.firstName;
                 session.user.lastName = token.lastName;
                 session.user.level = token.level;
                 session.user.libId = token.libId;
@@ -37,7 +37,7 @@ export const AuthOptions = {
 
             return {
                 id: dbUser.id,
-                firtName: dbUser.firstName,
+                firstName: dbUser.firstName,
                 lastName: dbUser.lastName,
                 level: dbUser.level,
                 libId: dbUser.libId,

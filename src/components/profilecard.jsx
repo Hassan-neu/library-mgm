@@ -1,13 +1,15 @@
 import Image from "next/image";
 import React from "react";
 
-const Profilecard = ({ id }) => {
+const Profilecard = ({ data }) => {
     return (
         <div className="py-4 px-5  w-full h-52 flex justify-between items-center bg-myOrange rounded-md">
             <div className="flex flex-col gap-2">
                 <div className="text-myGreen font-semibold flex gap-2">
                     <h4 className="uppercase">Name:</h4>
-                    <p>Lorem, ipsum dolor sit amet consectetur</p>
+                    <p>
+                        {data.user.firstName} , {data.user.lastName}
+                    </p>
                 </div>
                 <div className="text-myGreen font-semibold flex gap-2">
                     <h4 className="uppercase">Level:</h4>
@@ -15,7 +17,7 @@ const Profilecard = ({ id }) => {
                 </div>
                 <div className="text-myGreen font-semibold flex gap-2">
                     <h4 className="uppercase">Uid:</h4>
-                    <p>{id}</p>
+                    <p>{data.user.libId}</p>
                 </div>
                 <div className="text-myGreen font-semibold flex gap-2">
                     <h4 className="uppercase">Faculty:</h4>

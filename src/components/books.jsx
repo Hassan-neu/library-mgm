@@ -1,11 +1,9 @@
 import React from "react";
-import Book from "@/components/book";
-import { getServerSession } from "next-auth";
-import { AuthOptions } from "@/libs/auth";
-const Page = async () => {
-    const session = await getServerSession(AuthOptions);
+import Book from "./book";
+
+const BooksPage = () => {
     return (
-        <main className="min-h-screen px-8 py-4">
+        <main className="min-h-screen w-full px-8 py-4">
             <div className="w-full grid grid-cols-[repeat(auto-fit,minmax(230px,1fr))] grid-rows-[auto] gap-4">
                 <Book />
                 <Book />
@@ -28,4 +26,4 @@ const Page = async () => {
     );
 };
 
-export default Page;
+export default BooksPage;
