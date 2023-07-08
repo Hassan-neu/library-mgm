@@ -1,11 +1,12 @@
 import React from "react";
 import { AuthOptions } from "@/libs/auth";
 import { getServerSession } from "next-auth";
-import BooksPage from "@/components/books";
+import BooksPage from "@/components/bookspage";
 import SignIn from "@/components/signIn";
 import UserPage from "@/components/userPage";
 export default async function Home() {
     const session = await getServerSession(AuthOptions);
+    // console.log(session);
     if (!session) {
         return <SignIn />;
     }

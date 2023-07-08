@@ -8,8 +8,12 @@ export const AuthOptions = {
     },
     pages: {
         signIn: "/",
+        error: "/",
     },
     callbacks: {
+        async signOut({ token, session }) {
+            console.log(session, token);
+        },
         async session({ session, token }) {
             if (token) {
                 session.user.id = token.id;
@@ -25,13 +29,14 @@ export const AuthOptions = {
             return session;
         },
         async jwt({ token, user }) {
+            // console.log(token);
             const dbUser = await prisma.user.findFirst({
                 where: {
                     libId: token.libId,
                 },
             });
             if (!dbUser) {
-                token.user !== user.id;
+                token.id = user.id;
                 return token;
             }
 
@@ -57,8 +62,9 @@ export const AuthOptions = {
                         libId: loginId,
                     },
                 });
+                // console.log(user);
                 if (!user) {
-                    throw new Error("User no found");
+                    throw new Error("User not found");
                 }
                 const checkPassword = user.lastName === password;
                 if (!checkPassword || !user) {

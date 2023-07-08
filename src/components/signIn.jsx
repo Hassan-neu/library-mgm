@@ -17,7 +17,7 @@ const SignIn = () => {
             redirect: false,
             loginId: values.loginId,
             password: values.password,
-            callbackUrl: "/books",
+            callbackUrl: "/",
         });
         data.status && router.push(data.url);
     }
@@ -53,7 +53,7 @@ const SignIn = () => {
                         />
                         <button
                             type="submit"
-                            className="mt-8 py-2 px-14 self-center bg-myOrange rounded-md text-dirtyWhite"
+                            className="mt-8 py-2 px-4 self-center bg-myOrange rounded-md text-dirtyWhite"
                         >
                             Log in
                         </button>
