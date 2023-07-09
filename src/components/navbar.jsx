@@ -1,6 +1,9 @@
 import React from "react";
 import Button from "./button";
 import Link from "next/link";
+import { BsPersonFillCheck } from "react-icons/bs";
+import { BiBookAdd } from "react-icons/bi";
+import { GiArchiveRegister } from "react-icons/gi";
 const Navbar = () => {
     return (
         <div className="flex items-center px-8 py-6 bg-dirtyWhite text-myGreen font-semibold gap-3">
@@ -8,10 +11,19 @@ const Navbar = () => {
                 University&apos;s Library
             </div>
             <Button className="py-2 px-8 bg-myGreen text-myYellow rounded-md">
-                <Link href={"/books/add"}>Add Book</Link>
+                <Link href={"/books/add"}>
+                    <BiBookAdd />
+                </Link>
+            </Button>
+            <Button className="py-2 px-8 bg-myYellow text-dirtyWhite rounded-md">
+                <Link href={"/check"}>
+                    <BsPersonFillCheck />
+                </Link>
             </Button>
             <Button className="py-2 px-8 bg-myOrange text-dirtyWhite rounded-md">
-                <Link href={"/check"}>Check User</Link>
+                <Link href={"/books/registerLoan"}>
+                    <GiArchiveRegister />
+                </Link>
             </Button>
         </div>
     );

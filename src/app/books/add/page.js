@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { RiFolderUploadFill } from "react-icons/ri";
 const Page = () => {
     const [data, setData] = useState({});
     return (
@@ -8,9 +9,12 @@ const Page = () => {
                 <div className="text-myGreen font-bold self-center text-xl">
                     Add New Book
                 </div>
-                <form className="flex flex-col gap-6 w-full h-full ">
+                <form className="flex flex-col gap-6 w-4/5 h-full self-center ">
                     <div className="flex flex-col">
-                        <label htmlFor="name" className="text-myYellow ml-4">
+                        <label
+                            htmlFor="name"
+                            className="text-myYellow ml-4 font-bold"
+                        >
                             Book Name
                         </label>
                         <input
@@ -19,7 +23,7 @@ const Page = () => {
                             name="name"
                             value={data.name}
                             placeholder="Book"
-                            className="py-2 px-4 rounded-lg bg-transparent border-2 border-dirtyWhite focus:outline-none text-myGreen"
+                            className="py-2 px-4 rounded-lg bg-transparent border-2 border-dirtyWhite focus:outline-none text-myGreen font-semibold"
                             onChange={(e) =>
                                 setData((prevData) => ({
                                     ...prevData,
@@ -29,7 +33,10 @@ const Page = () => {
                         />
                     </div>
                     <div className="flex flex-col">
-                        <label htmlFor="author" className="text-myYellow ml-4">
+                        <label
+                            htmlFor="author"
+                            className="text-myYellow ml-4 font-bold"
+                        >
                             Author
                         </label>
                         <input
@@ -38,7 +45,7 @@ const Page = () => {
                             name="author"
                             value={data.author}
                             placeholder="Author"
-                            className="py-2 px-4 rounded-lg bg-transparent border-2 border-dirtyWhite focus:outline-none  text-myGreen"
+                            className="py-2 px-4 rounded-lg bg-transparent border-2 border-dirtyWhite focus:outline-none  text-myGreen font-semibold"
                             onChange={(e) =>
                                 setData((prevData) => ({
                                     ...prevData,
@@ -126,9 +133,9 @@ const Page = () => {
                     />
                     <button
                         type="submit"
-                        className="mt-4 py-2 px-14 self-end bg-myOrange rounded-md text-dirtyWhite"
+                        className="mt-4 py-2 px-8 bg-myYellow self-end text-dirtyWhite rounded-md"
                     >
-                        Add
+                        <RiFolderUploadFill />
                     </button>
                 </form>
             </div>
