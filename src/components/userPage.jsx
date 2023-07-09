@@ -44,13 +44,13 @@ const UserPage = ({ session }) => {
                     <div className="flex flex-col gap-2">
                         {tab === "Loan History" && (
                             <>
-                                <Bookloan />
-                                <Bookloan />
-                                <Bookloan />
-                                <Bookloan />
-                                <Bookloan />
-                                <Bookloan />
-                                <Bookloan />
+                                <Bookloan session={session} />
+                                <Bookloan session={session} />
+                                <Bookloan session={session} />
+                                <Bookloan session={session} />
+                                <Bookloan session={session} />
+                                <Bookloan session={session} />
+                                <Bookloan session={session} />
                             </>
                         )}
                         {tab === "Library Log" && (

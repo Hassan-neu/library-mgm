@@ -4,6 +4,7 @@ import { getServerSession } from "next-auth";
 import BooksPage from "@/components/bookspage";
 import SignIn from "@/components/signIn";
 import UserPage from "@/components/userPage";
+import Navbar from "@/components/navbar";
 export default async function Home() {
     const session = await getServerSession(AuthOptions);
     // console.log(session);
