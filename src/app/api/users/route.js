@@ -11,7 +11,7 @@ export async function GET(req) {
         return new Response(JSON.stringify(user), { status: 200 });
     } else {
         return new Response(JSON.stringify({ message: "user not found" }), {
-            status: 200,
+            status: 404,
         });
     }
 }
