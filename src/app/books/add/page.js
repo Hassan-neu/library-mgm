@@ -9,41 +9,55 @@ const Page = () => {
                     Add New Book
                 </div>
                 <form className="flex flex-col gap-6 w-full h-full ">
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={data.name}
-                        placeholder="Book"
-                        className="py-2 px-4 rounded-lg bg-transparent border-2 border-dirtyWhite focus:outline-none"
-                        onChange={(e) =>
-                            setData((prevData) => ({
-                                ...prevData,
-                                name: e.target.value,
-                            }))
-                        }
-                    />
-                    <input
-                        type="text"
-                        id="author"
-                        name="author"
-                        value={data.author}
-                        placeholder="Author"
-                        className="py-2 px-4 rounded-lg bg-transparent border-2 border-dirtyWhite focus:outline-none"
-                        onChange={(e) =>
-                            setData((prevData) => ({
-                                ...prevData,
-                                author: e.target.value,
-                            }))
-                        }
-                    />
+                    <div className="flex flex-col">
+                        <label htmlFor="name" className="text-myYellow ml-4">
+                            Book Name
+                        </label>
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            value={data.name}
+                            placeholder="Book"
+                            className="py-2 px-4 rounded-lg bg-transparent border-2 border-dirtyWhite focus:outline-none text-myGreen"
+                            onChange={(e) =>
+                                setData((prevData) => ({
+                                    ...prevData,
+                                    name: e.target.value,
+                                }))
+                            }
+                        />
+                    </div>
+                    <div className="flex flex-col">
+                        <label htmlFor="author" className="text-myYellow ml-4">
+                            Author
+                        </label>
+                        <input
+                            type="text"
+                            id="author"
+                            name="author"
+                            value={data.author}
+                            placeholder="Author"
+                            className="py-2 px-4 rounded-lg bg-transparent border-2 border-dirtyWhite focus:outline-none  text-myGreen"
+                            onChange={(e) =>
+                                setData((prevData) => ({
+                                    ...prevData,
+                                    author: e.target.value,
+                                }))
+                            }
+                        />
+                    </div>
+
                     <fieldset className="border-2 border-dirtyWhite px-4 py-2 flex flex-col gap-2 self-start rounded-lg">
-                        <legend>Select Field</legend>
+                        <legend className="text-myYellow">
+                            Which Field Best Describes it
+                        </legend>
                         <div className="flex items-center gap-2">
                             <input
                                 type="radio"
                                 id="science"
                                 name="field"
+                                value="Science"
                                 className="checked:border-4 checked:border-myGreen border-2  appearance-none w-4 h-4 rounded-full"
                                 onChange={(e) =>
                                     setData((prevData) => ({
@@ -62,8 +76,7 @@ const Page = () => {
                                 type="radio"
                                 id="art"
                                 name="field"
-                                defaultValue={"Science"}
-                                value={data.field}
+                                value="Art"
                                 className="checked:border-4 checked:border-myGreen border-2  appearance-none w-4 h-4 rounded-full"
                                 onChange={(e) =>
                                     setData((prevData) => ({
@@ -82,8 +95,7 @@ const Page = () => {
                                 type="radio"
                                 id="humanities"
                                 name="field"
-                                defaultValue={"Science"}
-                                value={data.field}
+                                value="humanities"
                                 className="checked:border-4 checked:border-myGreen border-2  appearance-none w-4 h-4 rounded-full"
                                 onChange={(e) =>
                                     setData((prevData) => ({
@@ -105,8 +117,6 @@ const Page = () => {
                         id="bookImage"
                         value={data.image}
                         name="bookImage"
-                        capture="user"
-                        className="appearance-none"
                         onChange={(e) =>
                             setData((prevData) => ({
                                 ...prevData,
