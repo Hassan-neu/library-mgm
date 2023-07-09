@@ -53,7 +53,7 @@ const SignIn = () => {
                         />
                         <button
                             type="submit"
-                            className="mt-8 py-2 px-4 self-center bg-myOrange rounded-md text-dirtyWhite"
+                            className="mt-8 py-2 px-4 self-center bg-myOrange rounded-md text-dirtyWhite transition-transform active:scale-90"
                         >
                             Log in
                         </button>

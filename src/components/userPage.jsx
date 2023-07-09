@@ -5,6 +5,7 @@ import TabBtn from "./tabbtn";
 import Bookloan from "./bookloan";
 import History from "./history";
 import Button from "./button";
+import { signOut } from "next-auth/react";
 const UserPage = ({ session }) => {
     const [tab, setTab] = useState("Loan History");
     return (
@@ -13,7 +14,7 @@ const UserPage = ({ session }) => {
                 <div className="text-myGreen font-bold text-xl self-center">
                     STUDENT PROFILE
                 </div>
-                <Profilecard data={session} />
+                <Profilecard session={session} />
                 {session.user.role === "ADMIN" && (
                     <div className="flex gap-3 self-end">
                         <Button className="py-2 px-4 bg-myYellow text-myGreen rounded-md">
@@ -65,6 +66,12 @@ const UserPage = ({ session }) => {
                     </div>
                 </div>
             </div>
+            <button
+                onClick={() => signOut()}
+                className="border-2 fixed right-5 bottom-6 bg-red-500"
+            >
+                Sign Out
+            </button>
         </main>
     );
 };

@@ -10,49 +10,6 @@ export const AuthOptions = {
         signIn: "/",
         error: "/",
     },
-    callbacks: {
-        async signOut({ token, session }) {
-            console.log(session, token);
-        },
-        async session({ session, token }) {
-            if (token) {
-                session.user.id = token.id;
-                session.user.firstName = token.firstName;
-                session.user.lastName = token.lastName;
-                session.user.level = token.level;
-                session.user.libId = token.libId;
-                session.user.department = token.department;
-                session.user.faculty = token.faculty;
-                session.user.picture = token.picture;
-                session.user.role = token.role;
-            }
-            return session;
-        },
-        async jwt({ token, user }) {
-            // console.log(token);
-            const dbUser = await prisma.user.findFirst({
-                where: {
-                    libId: token.libId,
-                },
-            });
-            if (!dbUser) {
-                token.id = user.id;
-                return token;
-            }
-
-            return {
-                id: dbUser.id,
-                firstName: dbUser.firstName,
-                lastName: dbUser.lastName,
-                level: dbUser.level,
-                libId: dbUser.libId,
-                department: dbUser.department,
-                faculty: dbUser.faculty,
-                picture: dbUser.image,
-                role: dbUser.role,
-            };
-        },
-    },
     providers: [
         CredentialsProvider({
             async authorize(req, credentials) {
@@ -74,5 +31,42 @@ export const AuthOptions = {
             },
         }),
     ],
-    secret: process.env.NEXTAUTH_SECRET,
+    callbacks: {
+        async session({ session, token }) {
+            if (token) {
+                session.user.id = token.id;
+                session.user.firstName = token.firstName;
+                session.user.lastName = token.lastName;
+                session.user.level = token.level;
+                session.user.libId = token.libId;
+                session.user.department = token.department;
+                session.user.faculty = token.faculty;
+                session.user.picture = token.picture;
+                session.user.role = token.role;
+            }
+            return session;
+        },
+        async jwt({ token, user }) {
+            if (user) {
+                token.id = user.id;
+            }
+            const dbUser = await prisma.user.findUnique({
+                where: {
+                    id: token.id,
+                },
+            });
+            return {
+                id: dbUser.id,
+                firstName: dbUser.firstName,
+                lastName: dbUser.lastName,
+                level: dbUser.level,
+                libId: dbUser.libId,
+                department: dbUser.department,
+                faculty: dbUser.faculty,
+                picture: dbUser.image,
+                role: dbUser.role,
+            };
+        },
+    },
+    secret: "GDyVVUEYzvcbnOUfGAi4asoHHzl05dQ/9wNWHzZJcxQ=",
 };

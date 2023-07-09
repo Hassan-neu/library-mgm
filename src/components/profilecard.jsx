@@ -1,14 +1,14 @@
 import Image from "next/image";
 import React from "react";
 
-const Profilecard = ({ data }) => {
+const Profilecard = ({ session }) => {
     return (
         <div className="py-4 px-5  w-full h-52 flex justify-between items-center bg-myOrange rounded-md">
             <div className="flex flex-col gap-2">
                 <div className="text-myGreen font-semibold flex gap-2">
                     <h4 className="uppercase">Name:</h4>
                     <p>
-                        {data.user.firstName} , {data.user.lastName}
+                        {session.user.firstName} , {session.user.lastName}
                     </p>
                 </div>
                 <div className="text-myGreen font-semibold flex gap-2">
@@ -17,15 +17,15 @@ const Profilecard = ({ data }) => {
                 </div>
                 <div className="text-myGreen font-semibold flex gap-2">
                     <h4 className="uppercase">Uid:</h4>
-                    <p>{data.user.libId}</p>
+                    <p>{session.user.libId}</p>
                 </div>
                 <div className="text-myGreen font-semibold flex gap-2">
                     <h4 className="uppercase">Faculty:</h4>
-                    <p>Lorem ipsum dolor sit amet.</p>
+                    <p>{session.user.faculty}</p>
                 </div>
                 <div className="text-myGreen font-semibold flex gap-2">
                     <h4 className="uppercase">Department:</h4>
-                    <p>Lorem, ipsum dolor.</p>
+                    <p>{session.user.department}</p>
                 </div>
             </div>
             <Image
