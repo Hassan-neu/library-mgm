@@ -8,3 +8,7 @@
     --primaryOrange: #f26924;
     --primaryYellow: #fdb62b;
 }
+
+.btn:hover .tooltip {
+    display: block;
+}

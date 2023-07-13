@@ -1,8 +1,22 @@
 "use client";
+import Image from "next/image";
 import React, { useState } from "react";
 import { RiFolderUploadFill } from "react-icons/ri";
 const Page = () => {
-    const [data, setData] = useState({});
+    const [data, setData] = useState({
+        name: "",
+        author: "",
+        field: "",
+        image: "",
+    });
+    const handleChange = async (e) => {
+        const form = e.currentTarget;
+        const fileInput = Array.from(form.elements).find(
+            ({ name }) => name === "bookImage"
+        );
+        const file = fileInput.files[0];
+        setData((prevData) => ({ ...prevData, image: file }));
+    };
     return (
         <main className="min-h-screen px-8 py-4">
             <div className="flex min-h-screen flex-col gap-8">
@@ -122,15 +136,24 @@ const Page = () => {
                     <input
                         type="file"
                         id="bookImage"
-                        value={data.image}
+                        // value={data.image}
                         name="bookImage"
-                        onChange={(e) =>
-                            setData((prevData) => ({
-                                ...prevData,
-                                image: e.target.value,
-                            }))
+                        onChange={
+                            (e) =>
+                                setData((prevData) => ({
+                                    ...prevData,
+                                    image: e.target.files[0],
+                                }))
+
+                            // console.log(e.target.files[0])
                         }
                     />
+                    {/* <Image
+                        src={data.image}
+                        width={300}
+                        height={300}
+                        alt={data.name}
+                    /> */}
                     <button
                         type="submit"
                         className="mt-4 py-2 px-8 bg-myYellow self-end text-dirtyWhite rounded-md"

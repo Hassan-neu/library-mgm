@@ -2,7 +2,12 @@
 import React, { useState } from "react";
 import { BiSave } from "react-icons/bi";
 const Page = () => {
-    const [data, setData] = useState({});
+    const [data, setData] = useState({
+        name: "",
+        author: "",
+        studentID: "",
+        dueDate: "",
+    });
     return (
         <main className="min-h-screen px-8 py-4">
             <div className="flex min-h-screen flex-col gap-8">

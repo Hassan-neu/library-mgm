@@ -36,10 +36,6 @@ const Bookloan = ({ session }) => {
                     )}
                 </button>
             </div>
-            <div className="flex flex-col items-center text-sm">
-                <h4 className="text-myOrange font-semibold">Fine</h4>
-                <p className="text-myGreen font-semibold">#900</p>
-            </div>
         </div>
     );
 };
