@@ -25,7 +25,7 @@ const Navbar = () => {
                 <ToolTip>Check User</ToolTip>
             </Button>
             <Button className="relative py-2 px-8 bg-myOrange text-dirtyWhite rounded-md btn">
-                <Link href={"/books/registerLoan"}>
+                <Link href={"/books/registerloan"}>
                     <GiArchiveRegister />
                 </Link>
                 <ToolTip>Register User</ToolTip>
