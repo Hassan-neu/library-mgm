@@ -28,7 +28,7 @@ const Navbar = () => {
                 <Link href={"/books/registerloan"}>
                     <GiArchiveRegister />
                 </Link>
-                <ToolTip>Register User</ToolTip>
+                <ToolTip>Register Loan</ToolTip>
             </Button>
         </div>
     );
