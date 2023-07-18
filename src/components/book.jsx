@@ -12,7 +12,7 @@ const Book = () => {
             />
 
             <div className="flex flex-col bg-myGreen">
-                <h3 className="flex flex-col text-myGreen text-center font-semibold px-2 bg-dirtyWhite rounded-bl-lg">
+                <h3 className="flex flex-col text-myGreen font-semibold px-4 bg-dirtyWhite rounded-bl-lg">
                     <span>In Dependence</span>
                     <span>Sarah Mayika Ladipo</span>
                 </h3>
