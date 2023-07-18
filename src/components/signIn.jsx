@@ -1,9 +1,10 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useFormik } from "formik";
 import { useRouter } from "next/navigation";
 const SignIn = () => {
+    const [msg, setMsg] = useState("");
     const router = useRouter();
     const formik = useFormik({
         initialValues: {
@@ -19,7 +20,9 @@ const SignIn = () => {
             password: values.password,
             callbackUrl: "/",
         });
-        data.status && router.push(data.url);
+        console.log(data);
+        data.ok && router.push(data.url);
+        setMsg(data.error);
     }
     return (
         <div className="w-screen h-screen bg-[url('/background/library.jpg')] bg-center bg-cover flex items-center justify-center">
@@ -31,6 +34,7 @@ const SignIn = () => {
                     <div className="text-white text-lg">
                         <p>Welcome to the Library</p>
                     </div>
+                    <p>{msg}</p>
                     <form
                         className="flex flex-col gap-6 w-full h-full text-dirtyWhite"
                         onSubmit={formik.handleSubmit}

@@ -3,15 +3,7 @@ import { withAuth } from "next-auth/middleware";
 
 export default withAuth({
     callbacks: {
-        authorized({ req, token }) {
-            if (token) {
-                if (req.nextUrl.pathname.includes("/books")) {
-                    return token?.role === "ADMIN";
-                }
-
-                return token;
-            }
-        },
+        authorized: ({ token }) => token?.role === "ADMIN",
     },
 });
 export const config = {
