@@ -20,7 +20,6 @@ const SignIn = () => {
             password: values.password,
             callbackUrl: "/",
         });
-        console.log(data);
         data.ok && router.push(data.url);
         setMsg(data.error);
     }

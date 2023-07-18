@@ -9,7 +9,7 @@ const Navbar = () => {
     return (
         <div className="flex items-center px-8 py-6 bg-dirtyWhite text-myGreen font-semibold gap-3">
             <div className="font-bold text-2xl mr-auto">
-                University&apos;s Library
+                <Link href="/">University&apos;s Library</Link>
             </div>
             <Button className="relative py-2 px-8 bg-myGreen text-myYellow rounded-md btn">
                 <Link href={"/books/add"}>

@@ -19,7 +19,6 @@ export const AuthOptions = {
                         libId: loginId,
                     },
                 });
-                // console.log(user);
                 if (!user) {
                     throw new Error("User not found");
                 }
