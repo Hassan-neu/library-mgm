@@ -3,7 +3,7 @@ import React from "react";
 import Book from "./book";
 import { signOut } from "next-auth/react";
 import Navbar from "./navbar";
-Navbar;
+import { VscSignOut } from "react-icons/vsc";
 
 const BooksPage = () => {
     return (
@@ -12,7 +12,7 @@ const BooksPage = () => {
                 <Navbar />
             </header>
             <main className="min-h-screen w-full px-8 py-4">
-                <span className="h-24 w-screen block"> </span>
+                <span className="h-24 w-full block"> </span>
                 <div className="w-full grid grid-cols-[repeat(auto-fit,minmax(230px,1fr))] grid-rows-[auto] gap-4">
                     <Book />
                     <Book />
@@ -33,9 +33,9 @@ const BooksPage = () => {
                 </div>
                 <button
                     onClick={() => signOut()}
-                    className="border-2 fixed right-5 bottom-6 bg-red-500"
+                    className="fixed right-5 bottom-6 text-myYellow rounded-lg p-3 font-bold bg-myGreen shadow-[0px_0px_0px_2px_#fdb62b]"
                 >
-                    Sign Out
+                    <VscSignOut size={20} />
                 </button>
             </main>
         </>

@@ -11,21 +11,21 @@ const Navbar = () => {
             <div className="font-bold text-2xl mr-auto">
                 <Link href="/">University&apos;s Library</Link>
             </div>
-            <Button className="relative py-2 px-8 bg-myGreen text-myYellow rounded-md btn">
-                <Link href={"/books/add"}>
+            <Button className="relative  bg-myGreen text-myYellow rounded-md btn flex justify-center items-center">
+                <Link href={"/books/add"} className="py-2 px-8">
                     <BiBookAdd />
                 </Link>
                 <ToolTip>Add Book</ToolTip>
             </Button>
 
-            <Button className="relative py-2 px-8 bg-myYellow text-dirtyWhite rounded-md btn">
-                <Link href={"/check"}>
+            <Button className="relative bg-myYellow text-dirtyWhite rounded-md btn flex justify-center items-center">
+                <Link href={"/check"} className="py-2 px-8">
                     <BsPersonFillCheck />
                 </Link>
                 <ToolTip>Check User</ToolTip>
             </Button>
-            <Button className="relative py-2 px-8 bg-myOrange text-dirtyWhite rounded-md btn">
-                <Link href={"/books/registerloan"}>
+            <Button className="relative  bg-myOrange text-dirtyWhite rounded-md btn flex justify-center items-center">
+                <Link href={"/books/registerloan"} className="py-2 px-8">
                     <GiArchiveRegister />
                 </Link>
                 <ToolTip>Register Loan</ToolTip>
