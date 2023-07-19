@@ -4,12 +4,13 @@ export async function POST(req) {
     try {
         const body = await req.json();
         if (body) {
-            const { name, author, field } = body;
+            const { title, author, field, image } = body;
             const book = await prisma.book.create({
                 data: {
-                    name,
+                    title,
                     author,
                     field,
+                    image,
                 },
             });
             return new Response(JSON.stringify(book), { status: 201 });

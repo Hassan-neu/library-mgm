@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { RiFolderUploadFill } from "react-icons/ri";
 const Page = () => {
     const [data, setData] = useState({
-        name: "",
+        title: "",
         author: "",
         field: "",
         image: "",
@@ -26,22 +26,22 @@ const Page = () => {
                 <form className="flex flex-col gap-6 w-4/5 h-full self-center ">
                     <div className="flex flex-col">
                         <label
-                            htmlFor="name"
+                            htmlFor="title"
                             className="text-myYellow ml-4 font-bold"
                         >
                             Book Name
                         </label>
                         <input
                             type="text"
-                            id="name"
-                            name="name"
-                            value={data.name}
+                            id="title"
+                            name="title"
+                            value={data.title}
                             placeholder="Book"
                             className="py-2 px-4 rounded-lg bg-transparent border-2 border-dirtyWhite focus:outline-none text-dirtyWhite font-semibold"
                             onChange={(e) =>
                                 setData((prevData) => ({
                                     ...prevData,
-                                    name: e.target.value,
+                                    title: e.target.value,
                                 }))
                             }
                         />
@@ -139,27 +139,20 @@ const Page = () => {
                     <input
                         type="file"
                         id="bookImage"
-                        // value={data.image}
                         name="bookImage"
                         className="text-dirtyWhite"
-                        onChange={
-                            (e) =>
-                                setData((prevData) => ({
-                                    ...prevData,
-                                    image: e.target.files[0],
-                                }))
-
-                            // console.log(e.target.files[0])
+                        onChange={(e) =>
+                            setData((prevData) => ({
+                                ...prevData,
+                                image: e.target.files[0],
+                            }))
                         }
                     />
-                    {/* <Image
-                        src={data.image}
-                        width={300}
-                        height={300}
-                        alt={data.name}
-                    /> */}
                     <button
-                        type="submit"
+                        onClick={(e) => {
+                            e.preventDefault();
+                            console.log(data);
+                        }}
                         className="mt-4 py-2 px-8 bg-myYellow self-end text-dirtyWhite rounded-md"
                     >
                         <RiFolderUploadFill />

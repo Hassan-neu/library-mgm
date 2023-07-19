@@ -6,6 +6,7 @@ import Bookloan from "./bookloan";
 import History from "./history";
 import Button from "./button";
 import { signOut } from "next-auth/react";
+import { VscSignOut } from "react-icons/vsc";
 const UserPage = ({ session }) => {
     const [tab, setTab] = useState("Loan History");
     return (
@@ -68,9 +69,9 @@ const UserPage = ({ session }) => {
             </div>
             <button
                 onClick={() => signOut()}
-                className="border-2 fixed right-5 bottom-6 bg-red-500"
+                className="fixed right-5 bottom-6 text-myGreen rounded-lg p-3 font-bold bg-myOrange shadow-[0px_0px_0px_2px_#1b4f4a]"
             >
-                Sign Out
+                <VscSignOut size={20} />
             </button>
         </main>
     );
