@@ -9,7 +9,7 @@ const Page = () => {
         dueDate: "",
     });
     return (
-        <main className="min-h-screen px-8 py-4">
+        <main className="min-h-screen px-8 py-4 bg-myYellow">
             <div className="flex min-h-screen flex-col gap-8">
                 <div className="text-myGreen font-bold self-center text-xl">
                     Register Loan
@@ -18,7 +18,7 @@ const Page = () => {
                     <div className="flex flex-col">
                         <label
                             htmlFor="name"
-                            className="text-myYellow ml-4 font-bold"
+                            className="text-myGreen ml-4 font-bold"
                         >
                             Book Name
                         </label>
@@ -28,7 +28,7 @@ const Page = () => {
                             name="name"
                             value={data.name}
                             placeholder="Book"
-                            className="py-2 px-4 rounded-lg bg-transparent border-2 border-dirtyWhite focus:outline-none text-myGreen font-semibold"
+                            className="py-2 px-4 rounded-lg bg-transparent border-2 border-myGreen focus:outline-none text-dirtyWhite font-semibold"
                             onChange={(e) =>
                                 setData((prevData) => ({
                                     ...prevData,
@@ -40,7 +40,7 @@ const Page = () => {
                     <div className="flex flex-col">
                         <label
                             htmlFor="author"
-                            className="text-myYellow ml-4 font-bold"
+                            className="text-myGreen ml-4 font-bold"
                         >
                             Author
                         </label>
@@ -50,7 +50,7 @@ const Page = () => {
                             name="author"
                             value={data.author}
                             placeholder="Author"
-                            className="py-2 px-4 rounded-lg bg-transparent border-2 border-dirtyWhite focus:outline-none  text-myGreen font-semibold"
+                            className="py-2 px-4 rounded-lg bg-transparent border-2 border-myGreen focus:outline-none  text-dirtyWhite font-semibold"
                             onChange={(e) =>
                                 setData((prevData) => ({
                                     ...prevData,
@@ -62,7 +62,7 @@ const Page = () => {
                     <div className="flex flex-col">
                         <label
                             htmlFor="author"
-                            className="text-myYellow ml-4 font-bold"
+                            className="text-myGreen ml-4 font-bold"
                         >
                             Student ID
                         </label>
@@ -72,7 +72,7 @@ const Page = () => {
                             name="studentid"
                             value={data.studentID}
                             placeholder="Student ID"
-                            className="py-2 px-4 rounded-lg bg-transparent border-2 border-dirtyWhite focus:outline-none  text-myGreen font-semibold"
+                            className="py-2 px-4 rounded-lg bg-transparent border-2 border-myGreen focus:outline-none  text-dirtyWhite font-semibold"
                             onChange={(e) =>
                                 setData((prevData) => ({
                                     ...prevData,
@@ -84,7 +84,7 @@ const Page = () => {
                     <div className="flex flex-col">
                         <label
                             htmlFor="author"
-                            className="text-myYellow ml-4 font-bold"
+                            className="text-myGreen ml-4 font-bold"
                         >
                             Due Date
                         </label>
@@ -94,7 +94,7 @@ const Page = () => {
                             name="dueDate"
                             value={data.dueDate}
                             className="py-2 px-4 
-                            rounded-lg bg-transparent border-2 border-dirtyWhite focus:outline-none  text-myGreen font-semibold"
+                            rounded-lg bg-transparent border-2 border-myGreen focus:outline-none  text-dirtyWhite font-semibold"
                             onChange={(e) =>
                                 setData((prevData) => ({
                                     ...prevData,
@@ -105,7 +105,7 @@ const Page = () => {
                     </div>
                     <button
                         type="submit"
-                        className="mt-4 py-2 px-8 bg-myYellow self-end text-dirtyWhite rounded-md"
+                        className="mt-4 py-2 px-8 bg-myGreen self-end text-dirtyWhite rounded-md"
                     >
                         <BiSave />
                     </button>

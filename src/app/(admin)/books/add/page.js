@@ -18,7 +18,7 @@ const Page = () => {
         setData((prevData) => ({ ...prevData, image: file }));
     };
     return (
-        <main className="min-h-screen px-8 py-4">
+        <main className="min-h-screen px-8 py-4 bg-myGreen">
             <div className="flex min-h-screen flex-col gap-8">
                 <div className="text-myGreen font-bold self-center text-xl">
                     Add New Book
@@ -37,7 +37,7 @@ const Page = () => {
                             name="name"
                             value={data.name}
                             placeholder="Book"
-                            className="py-2 px-4 rounded-lg bg-transparent border-2 border-dirtyWhite focus:outline-none text-myGreen font-semibold"
+                            className="py-2 px-4 rounded-lg bg-transparent border-2 border-dirtyWhite focus:outline-none text-dirtyWhite font-semibold"
                             onChange={(e) =>
                                 setData((prevData) => ({
                                     ...prevData,
@@ -59,7 +59,7 @@ const Page = () => {
                             name="author"
                             value={data.author}
                             placeholder="Author"
-                            className="py-2 px-4 rounded-lg bg-transparent border-2 border-dirtyWhite focus:outline-none  text-myGreen font-semibold"
+                            className="py-2 px-4 rounded-lg bg-transparent border-2 border-dirtyWhite focus:outline-none  text-dirtyWhite font-semibold"
                             onChange={(e) =>
                                 setData((prevData) => ({
                                     ...prevData,
@@ -70,7 +70,7 @@ const Page = () => {
                     </div>
 
                     <fieldset className="border-2 border-dirtyWhite px-4 py-2 flex flex-col gap-2 self-start rounded-lg">
-                        <legend className="text-myYellow">
+                        <legend className="text-myYellow font-bold">
                             Which Field Best Describes it
                         </legend>
                         <div className="flex items-center gap-2">
@@ -79,7 +79,7 @@ const Page = () => {
                                 id="science"
                                 name="field"
                                 value="Science"
-                                className="checked:border-4 checked:border-myGreen border-2  appearance-none w-4 h-4 rounded-full"
+                                className="checked:border-4 checked:border-myYellow border-2  appearance-none w-4 h-4 rounded-full"
                                 onChange={(e) =>
                                     setData((prevData) => ({
                                         ...prevData,
@@ -87,7 +87,10 @@ const Page = () => {
                                     }))
                                 }
                             />
-                            <label htmlFor="science" className="text-myGreen">
+                            <label
+                                htmlFor="science"
+                                className="text-dirtyWhite"
+                            >
                                 Science
                             </label>
                         </div>
@@ -98,7 +101,7 @@ const Page = () => {
                                 id="art"
                                 name="field"
                                 value="Art"
-                                className="checked:border-4 checked:border-myGreen border-2  appearance-none w-4 h-4 rounded-full"
+                                className="checked:border-4 checked:border-myYellow border-2  appearance-none w-4 h-4 rounded-full"
                                 onChange={(e) =>
                                     setData((prevData) => ({
                                         ...prevData,
@@ -106,7 +109,7 @@ const Page = () => {
                                     }))
                                 }
                             />
-                            <label htmlFor="art" className="text-myGreen">
+                            <label htmlFor="art" className="text-dirtyWhite">
                                 Art
                             </label>
                         </div>
@@ -117,7 +120,7 @@ const Page = () => {
                                 id="humanities"
                                 name="field"
                                 value="humanities"
-                                className="checked:border-4 checked:border-myGreen border-2  appearance-none w-4 h-4 rounded-full"
+                                className="checked:border-4 checked:border-myYellow border-2  appearance-none w-4 h-4 rounded-full"
                                 onChange={(e) =>
                                     setData((prevData) => ({
                                         ...prevData,
@@ -127,7 +130,7 @@ const Page = () => {
                             />
                             <label
                                 htmlFor="humanities"
-                                className="text-myGreen"
+                                className="text-dirtyWhite"
                             >
                                 Humanities
                             </label>
@@ -138,6 +141,7 @@ const Page = () => {
                         id="bookImage"
                         // value={data.image}
                         name="bookImage"
+                        className="text-dirtyWhite"
                         onChange={
                             (e) =>
                                 setData((prevData) => ({
