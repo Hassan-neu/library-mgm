@@ -5,7 +5,8 @@ import { signOut } from "next-auth/react";
 import Navbar from "./navbar";
 import { VscSignOut } from "react-icons/vsc";
 
-const BooksPage = () => {
+const BooksPage = ({ books }) => {
+    console.log(books);
     return (
         <>
             <header className="fixed top-0 w-full">
@@ -14,22 +15,9 @@ const BooksPage = () => {
             <main className="min-h-screen w-full px-8 py-4">
                 <span className="h-24 w-full block"> </span>
                 <div className="w-full grid grid-cols-[repeat(auto-fit,minmax(230px,1fr))] grid-rows-[auto] gap-4">
-                    <Book />
-                    <Book />
-                    <Book />
-                    <Book />
-                    <Book />
-                    <Book />
-                    <Book />
-                    <Book />
-                    <Book />
-                    <Book />
-                    <Book />
-                    <Book />
-                    <Book />
-                    <Book />
-                    <Book />
-                    <Book />
+                    {books.map((bk) => (
+                        <Book key={bk.id} book={bk} />
+                    ))}
                 </div>
                 <button
                     onClick={() => signOut()}

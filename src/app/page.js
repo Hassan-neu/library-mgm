@@ -7,14 +7,20 @@ import UserPage from "@/components/userPage";
 import Navbar from "@/components/navbar";
 export default async function Home() {
     const session = await getServerSession(AuthOptions);
-    // console.log(session);
+    const getbooks = await fetch("http://localhost:3000/api/book", {
+        method: "GET",
+        header: {
+            "Content-Type": "application/json",
+        },
+    });
+    const books = await getbooks.json();
     if (!session) {
         return <SignIn />;
     }
     return (
         <main className="flex min-h-screen">
             {session.user.role === "ADMIN" ? (
-                <BooksPage />
+                <BooksPage books={books} />
             ) : (
                 <UserPage session={session} />
             )}

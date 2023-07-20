@@ -1,10 +1,11 @@
 import React from "react";
 import Image from "next/image";
-const Book = () => {
+const Book = ({ book }) => {
+    const { title, author, genre, image } = book;
     return (
         <div className="flex flex-col rounded-md overflow-hidden">
             <Image
-                src={"/librarylight.jpg"}
+                src={image}
                 width={200}
                 height={100}
                 alt="book"
@@ -13,8 +14,8 @@ const Book = () => {
 
             <div className="flex flex-col bg-myGreen">
                 <h3 className="flex flex-col text-myGreen font-semibold px-4 bg-dirtyWhite rounded-bl-lg">
-                    <span>In Dependence</span>
-                    <span>Sarah Mayika Ladipo</span>
+                    <span>{title}</span>
+                    <span>{author}</span>
                 </h3>
                 <div className="flex justify-between items-center">
                     <span className="h-full bg-myOrange">

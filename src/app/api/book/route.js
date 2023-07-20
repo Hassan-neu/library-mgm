@@ -38,3 +38,18 @@ export async function POST(req) {
         );
     }
 }
+
+export async function GET(req) {
+    try {
+        const { searchParams } = new URL(req.url);
+        if (searchParams) {
+            const books = await prisma.book.findMany();
+            return new Response(JSON.stringify(books), { status: 200 });
+        }
+    } catch (error) {
+        return new Response(
+            JSON.stringify({ message: "Action not completed" }),
+            { status: 400 }
+        );
+    }
+}
