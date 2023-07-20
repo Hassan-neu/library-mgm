@@ -6,16 +6,18 @@ const Page = () => {
     const [data, setData] = useState({
         title: "",
         author: "",
-        field: "",
+        genre: [],
         image: "",
+        copies: 0,
     });
     async function onSubmit(e) {
         e.preventDefault();
         const formData = new FormData();
         formData.append("title", data.title);
         formData.append("author", data.author);
-        formData.append("field", data.field);
+        formData.append("genre", data.genre);
         formData.append("image", data.image);
+        formData.append("copies", data.copies);
         const bookPost = await fetch("http://localhost:3000/api/book", {
             method: "POST",
             body: formData,
@@ -29,10 +31,10 @@ const Page = () => {
                     Add New Book
                 </div>
                 <form className="flex flex-col gap-6 w-4/5 h-full self-center ">
-                    <div className="flex flex-col">
+                    <div className="flex flex-col gap-2">
                         <label
                             htmlFor="title"
-                            className="text-myYellow ml-4 font-bold"
+                            className="text-myYellow  font-bold"
                         >
                             Book Name
                         </label>
@@ -51,10 +53,10 @@ const Page = () => {
                             }
                         />
                     </div>
-                    <div className="flex flex-col">
+                    <div className="flex flex-col gap-2">
                         <label
                             htmlFor="author"
-                            className="text-myYellow ml-4 font-bold"
+                            className="text-myYellow  font-bold"
                         >
                             Author
                         </label>
@@ -76,21 +78,169 @@ const Page = () => {
 
                     <fieldset className="border-2 border-dirtyWhite px-4 py-2 flex flex-col gap-2 self-start rounded-lg">
                         <legend className="text-myYellow font-bold">
-                            Which Field Best Describes it
+                            Genre
                         </legend>
                         <div className="flex items-center gap-2">
                             <input
-                                type="radio"
-                                id="science"
-                                name="field"
-                                value="Science"
+                                type="checkbox"
+                                id="fiction"
+                                name="genre"
+                                value="Fiction"
                                 className="checked:border-4 checked:border-myYellow border-2  appearance-none w-4 h-4 rounded-full"
-                                onChange={(e) =>
-                                    setData((prevData) => ({
-                                        ...prevData,
-                                        field: e.target.value,
-                                    }))
-                                }
+                                onChange={(e) => {
+                                    if (e.target.checked) {
+                                        return setData((prevData) => ({
+                                            ...prevData,
+                                            genre: [
+                                                ...data.genre,
+                                                e.target.value,
+                                            ],
+                                        }));
+                                    } else {
+                                        const newGenre = data.genre.filter(
+                                            (gnr) => gnr != e.target.value
+                                        );
+                                        return setData((prevData) => ({
+                                            ...prevData,
+                                            genre: newGenre,
+                                        }));
+                                    }
+                                }}
+                            />
+                            <label
+                                htmlFor="fiction"
+                                className="text-dirtyWhite"
+                            >
+                                Fiction
+                            </label>
+                        </div>
+
+                        <div className="flex items-center gap-2">
+                            <input
+                                type="checkbox"
+                                id="non-fiction"
+                                name="genre"
+                                value="Non-Fiction"
+                                className="checked:border-4 checked:border-myYellow border-2  appearance-none w-4 h-4 rounded-full"
+                                onChange={(e) => {
+                                    if (e.target.checked) {
+                                        return setData((prevData) => ({
+                                            ...prevData,
+                                            genre: [
+                                                ...data.genre,
+                                                e.target.value,
+                                            ],
+                                        }));
+                                    } else {
+                                        const newGenre = data.genre.filter(
+                                            (gnr) => gnr != e.target.value
+                                        );
+                                        return setData((prevData) => ({
+                                            ...prevData,
+                                            genre: newGenre,
+                                        }));
+                                    }
+                                }}
+                            />
+                            <label
+                                htmlFor="non-fiction"
+                                className="text-dirtyWhite"
+                            >
+                                Non-Fiction
+                            </label>
+                        </div>
+
+                        <div className="flex items-center gap-2">
+                            <input
+                                type="checkbox"
+                                id="poetry"
+                                name="genre"
+                                value="Poetry"
+                                className="checked:border-4 checked:border-myYellow border-2  appearance-none w-4 h-4 rounded-full"
+                                onChange={(e) => {
+                                    if (e.target.checked) {
+                                        return setData((prevData) => ({
+                                            ...prevData,
+                                            genre: [
+                                                ...data.genre,
+                                                e.target.value,
+                                            ],
+                                        }));
+                                    } else {
+                                        const newGenre = data.genre.filter(
+                                            (gnr) => gnr != e.target.value
+                                        );
+                                        return setData((prevData) => ({
+                                            ...prevData,
+                                            genre: newGenre,
+                                        }));
+                                    }
+                                }}
+                            />
+                            <label htmlFor="poetry" className="text-dirtyWhite">
+                                Poetry
+                            </label>
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <input
+                                type="checkbox"
+                                id="drama-play"
+                                name="genre"
+                                value="Drama/Play"
+                                className="checked:border-4 checked:border-myYellow border-2  appearance-none w-4 h-4 rounded-full"
+                                onChange={(e) => {
+                                    if (e.target.checked) {
+                                        return setData((prevData) => ({
+                                            ...prevData,
+                                            genre: [
+                                                ...data.genre,
+                                                e.target.value,
+                                            ],
+                                        }));
+                                    } else {
+                                        const newGenre = data.genre.filter(
+                                            (gnr) => gnr != e.target.value
+                                        );
+                                        return setData((prevData) => ({
+                                            ...prevData,
+                                            genre: newGenre,
+                                        }));
+                                    }
+                                }}
+                            />
+                            <label
+                                htmlFor="drama-play"
+                                className="text-dirtyWhite"
+                            >
+                                Drama / Play
+                            </label>
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <input
+                                type="checkbox"
+                                id="science"
+                                name="genre"
+                                value="science"
+                                className="checked:border-4 checked:border-myYellow border-2  appearance-none w-4 h-4 rounded-full"
+                                onChange={(e) => {
+                                    if (e.target.checked) {
+                                        return setData((prevData) => ({
+                                            ...prevData,
+                                            genre: [
+                                                ...data.genre,
+                                                e.target.value,
+                                            ],
+                                        }));
+                                    } else {
+                                        const newGenre = data.genre.filter(
+                                            (gnr) => gnr != e.target.value
+                                        );
+                                        return setData((prevData) => ({
+                                            ...prevData,
+                                            genre: newGenre,
+                                        }));
+                                    }
+                                }}
                             />
                             <label
                                 htmlFor="science"
@@ -99,60 +249,51 @@ const Page = () => {
                                 Science
                             </label>
                         </div>
-
-                        <div className="flex items-center gap-2">
-                            <input
-                                type="radio"
-                                id="art"
-                                name="field"
-                                value="Art"
-                                className="checked:border-4 checked:border-myYellow border-2  appearance-none w-4 h-4 rounded-full"
-                                onChange={(e) =>
-                                    setData((prevData) => ({
-                                        ...prevData,
-                                        field: e.target.value,
-                                    }))
-                                }
-                            />
-                            <label htmlFor="art" className="text-dirtyWhite">
-                                Art
-                            </label>
-                        </div>
-
-                        <div className="flex items-center gap-2">
-                            <input
-                                type="radio"
-                                id="humanities"
-                                name="field"
-                                value="humanities"
-                                className="checked:border-4 checked:border-myYellow border-2  appearance-none w-4 h-4 rounded-full"
-                                onChange={(e) =>
-                                    setData((prevData) => ({
-                                        ...prevData,
-                                        field: e.target.value,
-                                    }))
-                                }
-                            />
-                            <label
-                                htmlFor="humanities"
-                                className="text-dirtyWhite"
-                            >
-                                Humanities
-                            </label>
-                        </div>
                     </fieldset>
-                    <input
-                        type="file"
-                        id="bookImage"
-                        name="bookImage"
-                        className="text-dirtyWhite"
-                        onChange={(e) =>
-                            setData((prevData) => ({
-                                ...prevData,
-                                image: e.target.files[0],
-                            }))
-                        }
-                    />
+
+                    <div className="flex flex-col gap-2">
+                        <label
+                            htmlFor="copies"
+                            className="text-myYellow  font-bold"
+                        >
+                            Book Copies
+                        </label>
+                        <input
+                            type="number"
+                            min={1}
+                            id="copies"
+                            name="copies"
+                            value={data.copies}
+                            placeholder="Copies"
+                            className="py-2 px-4 rounded-lg bg-transparent border-2 border-dirtyWhite focus:outline-none  text-dirtyWhite font-semibold self-start"
+                            onChange={(e) =>
+                                setData((prevData) => ({
+                                    ...prevData,
+                                    copies: e.target.value,
+                                }))
+                            }
+                        />
+                    </div>
+                    <div className="flex flex-col gap-2">
+                        <label
+                            htmlFor="image"
+                            className="text-myYellow  font-bold"
+                        >
+                            Add Book Cover
+                        </label>
+                        <input
+                            type="file"
+                            id="image"
+                            name="image"
+                            className=" text-dirtyWhite font-semibold"
+                            onChange={(e) =>
+                                setData((prevData) => ({
+                                    ...prevData,
+                                    image: e.target.files[0],
+                                }))
+                            }
+                        />
+                    </div>
 
                     <button
                         type="submit"

@@ -4,8 +4,9 @@ export async function POST(req) {
         const body = await req.formData();
         const title = body.get("title");
         const author = body.get("author");
-        const field = body.get("field");
+        const genre = body.get("genre");
         const image = body.get("image");
+        const copies = body.get("copies");
         const formData = new FormData();
         formData.append("file", image);
         formData.append("upload_preset", "my-uploads");
@@ -20,9 +21,9 @@ export async function POST(req) {
             data: {
                 title,
                 author,
-                field,
-                image: cloudImage.securl_url,
-                copies: 30,
+                genre,
+                image: cloudImage.secure_url,
+                copies: parseInt(copies),
             },
         });
         return new Response(JSON.stringify(book), {
