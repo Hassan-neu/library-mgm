@@ -59,9 +59,10 @@ model User {
 
 model Book {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  name      String
+  title     String
   author    String
   field     String
+  image     String
   dateAdded DateTime @default(now())
   copies    Int
 }

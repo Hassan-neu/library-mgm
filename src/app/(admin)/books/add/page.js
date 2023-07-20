@@ -9,18 +9,23 @@ const Page = () => {
         field: "",
         image: "",
     });
-    const handleChange = async (e) => {
-        const form = e.currentTarget;
-        const fileInput = Array.from(form.elements).find(
-            ({ name }) => name === "bookImage"
-        );
-        const file = fileInput.files[0];
-        setData((prevData) => ({ ...prevData, image: file }));
-    };
+    async function onSubmit(e) {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append("title", data.title);
+        formData.append("author", data.author);
+        formData.append("field", data.field);
+        formData.append("image", data.image);
+        const bookPost = await fetch("http://localhost:3000/api/book", {
+            method: "POST",
+            body: formData,
+        }).then((res) => res.json());
+        console.log(bookPost);
+    }
     return (
         <main className="min-h-screen px-8 py-4 bg-myGreen">
             <div className="flex min-h-screen flex-col gap-8">
-                <div className="text-myGreen font-bold self-center text-xl">
+                <div className="text-myYellow font-bold self-center text-xl">
                     Add New Book
                 </div>
                 <form className="flex flex-col gap-6 w-4/5 h-full self-center ">
@@ -148,10 +153,11 @@ const Page = () => {
                             }))
                         }
                     />
+
                     <button
+                        type="submit"
                         onClick={(e) => {
-                            e.preventDefault();
-                            console.log(data);
+                            onSubmit(e);
                         }}
                         className="mt-4 py-2 px-8 bg-myYellow self-end text-dirtyWhite rounded-md"
                     >
