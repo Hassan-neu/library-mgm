@@ -1,8 +1,9 @@
 "use client";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { RiFolderUploadFill } from "react-icons/ri";
 const Page = () => {
+    const field = useRef();
     const [data, setData] = useState({
         title: "",
         author: "",
@@ -10,6 +11,7 @@ const Page = () => {
         image: "",
         copies: 0,
     });
+
     async function onSubmit(e) {
         e.preventDefault();
         const formData = new FormData();
@@ -23,6 +25,18 @@ const Page = () => {
             body: formData,
         }).then((res) => res.json());
         console.log(bookPost);
+        setData({
+            title: "",
+            author: "",
+            genre: [],
+            image: "",
+            copies: 0,
+        });
+        Array.from(field.current.elements).map((input) => {
+            if (input.checked) {
+                input.checked = false;
+            }
+        });
     }
     return (
         <main className="min-h-screen px-8 py-4 bg-myGreen">
@@ -76,7 +90,10 @@ const Page = () => {
                         />
                     </div>
 
-                    <fieldset className="border-2 border-dirtyWhite px-4 py-2 flex flex-col gap-2 self-start rounded-lg">
+                    <fieldset
+                        className="border-2 border-dirtyWhite px-4 py-2 flex flex-col gap-2 self-start rounded-lg"
+                        ref={field}
+                    >
                         <legend className="text-myYellow font-bold">
                             Genre
                         </legend>

@@ -21,7 +21,7 @@ export async function POST(req) {
             data: {
                 title,
                 author,
-                genre,
+                genre: genre.split(","),
                 image: cloudImage.secure_url,
                 copies: parseInt(copies),
             },
