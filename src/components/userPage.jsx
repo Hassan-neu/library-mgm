@@ -67,13 +67,13 @@ const UserPage = ({ session }) => {
                     <div className="flex flex-col gap-2">
                         {tab === "Loan History" && (
                             <>
-                                <Bookloan session={session} />
-                                <Bookloan session={session} />
-                                <Bookloan session={session} />
-                                <Bookloan session={session} />
-                                <Bookloan session={session} />
-                                <Bookloan session={session} />
-                                <Bookloan session={session} />
+                                {data.loan?.map((book) => (
+                                    <Bookloan
+                                        key={book.id}
+                                        book={book}
+                                        session={session}
+                                    />
+                                ))}
                             </>
                         )}
                         {tab === "Library Log" && (

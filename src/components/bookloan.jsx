@@ -2,25 +2,36 @@
 import React, { useState } from "react";
 import { IoCheckmarkCircleOutline } from "react-icons/io5";
 import { MdOutlineCancel } from "react-icons/md";
-const Bookloan = ({ session }) => {
+const Bookloan = ({ session, book }) => {
     const [returned, setReturned] = useState(false);
-
     return (
         <div className="flex justify-between px-6 py-4 bg-dirtyWhite items-center rounded-md">
-            <div className="text-myGreen font-semibold">Book name</div>
-            <div className="flex flex-col items-center text-sm">
+            <div className="grow-0 shrink-0 basis-1/5 flex text-myGreen font-semibold">
+                {book.bookTitle}
+            </div>
+            <div className="grow-0 shrink-0 basis-1/5 flex flex-col items-center text-sm">
                 <h4 className="text-myOrange font-semibold">Fetch</h4>
-                <p className="text-myGreen font-semibold">1/3/2024</p>
+                <p className="text-myGreen font-semibold">
+                    {new Date(book.dateCollected)
+                        .toLocaleDateString()
+                        .split("/")
+                        .join("-")}
+                </p>
             </div>
-            <div className="flex flex-col items-center text-sm">
+            <div className="grow-0 shrink-0 basis-1/5 flex flex-col items-center text-sm">
                 <h4 className="text-myOrange font-semibold">Due</h4>
-                <p className="text-myGreen font-semibold">2/6/25</p>
+                <p className="text-myGreen font-semibold">
+                    {new Date(book.dueDate)
+                        .toLocaleDateString()
+                        .split("/")
+                        .join("-")}
+                </p>
             </div>
-            <div className="flex flex-col items-center text-sm">
+            <div className="grow-0 shrink-0 basis-1/5 flex flex-col items-center text-sm">
                 <h4 className="text-myOrange font-semibold">Time past</h4>
                 <p className="text-myGreen font-semibold">23 days</p>
             </div>
-            <div className="flex flex-col items-center text-sm">
+            <div className="grow-0 shrink-0 basis-1/5 flex flex-col items-center text-sm">
                 <h4 className="text-myOrange font-semibold">Status</h4>
                 <button
                     disabled={session.user.role === "STUDENT"}
