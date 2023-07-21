@@ -12,12 +12,12 @@ const Book = ({ book }) => {
                 className="h-[180px] w-full object-cover"
             />
 
-            <div className="flex flex-col bg-myGreen">
+            <div className="flex flex-col bg-myGreen h-full">
                 <h3 className="flex flex-col text-myGreen font-semibold px-4 bg-dirtyWhite rounded-bl-lg">
                     <span>{title}</span>
                     <span>{author}</span>
                 </h3>
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center h-full">
                     <span className="h-full bg-myOrange">
                         <span className="px-2 py-1 h-full rounded-tr-lg flex items-center bg-myGreen">
                             <span className="w-4 h-4 rounded-full bg-myYellow">

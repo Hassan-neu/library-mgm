@@ -8,14 +8,36 @@ import Button from "./button";
 import { signOut } from "next-auth/react";
 import { VscSignOut } from "react-icons/vsc";
 const UserPage = ({ session }) => {
+    const {
+        user: { libId },
+    } = session;
+    const [data, setData] = useState({});
     const [tab, setTab] = useState("Loan History");
+    const getData = useCallback(async () => {
+        const options = {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        };
+        const res = await fetch(
+            `http://localhost:3000/api/users?loginId=${libId}`,
+            options
+        );
+        const user = await res.json();
+        setData(user);
+    }, [libId]);
+
+    useEffect(() => {
+        getData();
+    }, [getData]);
     return (
         <main className="min-h-screen w-full px-8 py-4">
             <div className="flex min-h-screen flex-col gap-8">
                 <div className="text-myGreen font-bold text-xl self-center">
                     STUDENT PROFILE
                 </div>
-                <Profilecard session={session} />
+                <Profilecard data={data} />
                 {session.user.role === "ADMIN" && (
                     <div className="flex gap-3 self-end">
                         <Button className="py-2 px-4 bg-myYellow text-myGreen rounded-md">

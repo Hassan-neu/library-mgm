@@ -47,7 +47,7 @@ const Page = ({ params: { id } }) => {
                             Library Log
                         </TabBtn>
                     </div>
-                    <div className="flex flex-col gap-2">
+                    {/* <div className="flex flex-col gap-2">
                         {tab === "Loan History" && (
                             <>
                                 <Bookloan />
@@ -69,7 +69,7 @@ const Page = ({ params: { id } }) => {
                                 <History />
                             </>
                         )}
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </main>

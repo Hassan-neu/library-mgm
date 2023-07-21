@@ -12,7 +12,6 @@ export async function POST(req) {
                     studentId,
                 },
             });
-            console.log(createLoan);
             const newLoan = await prisma.user.update({
                 where: {
                     libId: studentId,

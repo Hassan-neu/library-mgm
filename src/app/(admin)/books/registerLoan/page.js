@@ -13,7 +13,12 @@ const Page = () => {
             method: "POST",
             body: JSON.stringify(data),
         }).then((res) => res.json());
-        console.log(register);
+        setData({
+            bookTitle: "",
+            bookAuthor: "",
+            studentId: "",
+            dueDate: "",
+        });
     }
     return (
         <main className="min-h-screen px-8 py-4 bg-myYellow bg-opacity-80">
