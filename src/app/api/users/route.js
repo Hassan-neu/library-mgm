@@ -7,6 +7,9 @@ export async function GET(req) {
             where: {
                 libId: loginId,
             },
+            include: {
+                loan: true,
+            },
         });
         return new Response(JSON.stringify(user), { status: 200 });
     } else {
