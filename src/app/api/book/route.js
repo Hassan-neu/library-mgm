@@ -42,7 +42,15 @@ export async function POST(req) {
 export async function GET(req) {
     try {
         const { searchParams } = new URL(req.url);
-        if (searchParams) {
+        const id = searchParams.get("id");
+        if (id) {
+            const book = await prisma.book.findUnique({
+                where: {
+                    id,
+                },
+            });
+            return new Response(JSON.stringify(book), { status: 200 });
+        } else {
             const books = await prisma.book.findMany();
             return new Response(JSON.stringify(books), { status: 200 });
         }

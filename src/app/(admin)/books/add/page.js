@@ -24,7 +24,6 @@ const Page = () => {
             method: "POST",
             body: formData,
         }).then((res) => res.json());
-        console.log(bookPost);
         setData({
             title: "",
             author: "",

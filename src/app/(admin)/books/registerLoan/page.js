@@ -3,13 +3,20 @@ import React, { useState } from "react";
 import { BiSave } from "react-icons/bi";
 const Page = () => {
     const [data, setData] = useState({
-        name: "",
-        author: "",
-        studentID: "",
+        bookTitle: "",
+        bookAuthor: "",
+        studentId: "",
         dueDate: "",
     });
+    async function onSubmit() {
+        const register = await fetch("http://localhost:3000/api/bookloan", {
+            method: "POST",
+            body: JSON.stringify(data),
+        }).then((res) => res.json());
+        console.log(register);
+    }
     return (
-        <main className="min-h-screen px-8 py-4 bg-myYellow">
+        <main className="min-h-screen px-8 py-4 bg-myYellow bg-opacity-80">
             <div className="flex min-h-screen flex-col gap-8">
                 <div className="text-myGreen font-bold self-center text-xl">
                     Register Loan
@@ -24,15 +31,15 @@ const Page = () => {
                         </label>
                         <input
                             type="text"
-                            id="name"
-                            name="name"
-                            value={data.name}
+                            id="title"
+                            name="title"
+                            value={data.bookTitle}
                             placeholder="Book"
                             className="py-2 px-4 rounded-lg bg-transparent border-2 border-myGreen focus:outline-none text-dirtyWhite font-semibold"
                             onChange={(e) =>
                                 setData((prevData) => ({
                                     ...prevData,
-                                    name: e.target.value,
+                                    bookTitle: e.target.value,
                                 }))
                             }
                         />
@@ -48,13 +55,13 @@ const Page = () => {
                             type="text"
                             id="author"
                             name="author"
-                            value={data.author}
+                            value={data.bookAuthor}
                             placeholder="Author"
                             className="py-2 px-4 rounded-lg bg-transparent border-2 border-myGreen focus:outline-none  text-dirtyWhite font-semibold"
                             onChange={(e) =>
                                 setData((prevData) => ({
                                     ...prevData,
-                                    author: e.target.value,
+                                    bookAuthor: e.target.value,
                                 }))
                             }
                         />
@@ -70,13 +77,13 @@ const Page = () => {
                             type="text"
                             id="studentid"
                             name="studentid"
-                            value={data.studentID}
+                            value={data.studentId}
                             placeholder="Student ID"
                             className="py-2 px-4 rounded-lg bg-transparent border-2 border-myGreen focus:outline-none  text-dirtyWhite font-semibold"
                             onChange={(e) =>
                                 setData((prevData) => ({
                                     ...prevData,
-                                    studentID: e.target.value,
+                                    studentId: e.target.value,
                                 }))
                             }
                         />
@@ -105,6 +112,10 @@ const Page = () => {
                     </div>
                     <button
                         type="submit"
+                        onClick={(e) => {
+                            e.preventDefault();
+                            onSubmit();
+                        }}
                         className="mt-4 py-2 px-8 bg-myGreen self-end text-dirtyWhite rounded-md"
                     >
                         <BiSave />

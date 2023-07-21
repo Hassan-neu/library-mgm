@@ -6,7 +6,6 @@ import Navbar from "./navbar";
 import { VscSignOut } from "react-icons/vsc";
 
 const BooksPage = ({ books }) => {
-    console.log(books);
     return (
         <>
             <header className="fixed top-0 w-full">

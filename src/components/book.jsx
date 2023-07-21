@@ -26,8 +26,8 @@ const Book = ({ book }) => {
                         </span>
                     </span>
 
-                    <span className=" w-full bg-myOrange rounded-bl-lg px-2 py-1 text-dirtyWhite">
-                        Science
+                    <span className=" w-full h-full  bg-myOrange rounded-bl-lg px-2 py-1 text-dirtyWhite">
+                        {genre.map((gnr) => `${gnr}, `)}
                     </span>
                 </div>
             </div>
