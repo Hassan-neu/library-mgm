@@ -16,9 +16,11 @@ const Book = ({ book }) => {
 
             {/* check how the lower box reacts to changes later on since the h-full has been removed */}
             <div className="flex flex-col bg-myGreen h-[80px]">
-                <h3 className="flex flex-col text-myGreen font-semibold px-4 bg-dirtyWhite rounded-bl-lg">
-                    <span>{title}</span>
-                    <span>{author}</span>
+                <h3 className="flex flex-col text-myGreen px-4 bg-dirtyWhite rounded-bl-lg">
+                    <span className="font-semibold">{title}</span>
+                    <span className="text-xs self-end font-semibold">
+                        {author}
+                    </span>
                 </h3>
                 <div className="flex justify-between items-center h-full">
                     <span className="h-full bg-myOrange">
@@ -29,7 +31,7 @@ const Book = ({ book }) => {
                         </span>
                     </span>
 
-                    <span className=" w-full h-full  bg-myOrange rounded-bl-lg px-2 py-1 text-dirtyWhite capitalize">
+                    <span className=" w-full h-full flex items-center  bg-myOrange rounded-bl-lg px-2 py-1 text-dirtyWhite capitalize text-right">
                         {genre.length > 2
                             ? genre.slice(0, 2).join(", ")
                             : genre.at(0)}
