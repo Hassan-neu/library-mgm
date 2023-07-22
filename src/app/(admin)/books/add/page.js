@@ -41,11 +41,11 @@ const Page = () => {
     }
     return (
         <main className="min-h-screen px-8 py-4 bg-myGreen">
-            <div className="flex w-3/5 min-h-screen flex-col gap-8 my-0 mx-auto">
+            <div className="flex  min-h-screen flex-col gap-8">
                 <div className="text-myYellow font-bold self-center text-xl">
                     Add New Book
                 </div>
-                <form className="flex flex-col gap-6 w-4/5 h-full self-center ">
+                <form className="flex min-w-[350px] w-2/5 flex-col gap-6 h-full self-center ">
                     <div className="flex flex-col gap-2">
                         <label
                             htmlFor="title"
@@ -92,7 +92,7 @@ const Page = () => {
                     </div>
 
                     <fieldset
-                        className="border-2 border-dirtyWhite px-4 py-2 flex flex-col gap-2 self-start rounded-lg"
+                        className="border-2 border-dirtyWhite px-4 py-2 flex flex-col gap-2 rounded-lg self-start"
                         ref={field}
                     >
                         <legend className="text-myYellow font-bold">
@@ -269,7 +269,7 @@ const Page = () => {
                         </div>
                     </fieldset>
 
-                    <div className="flex flex-col gap-2 self-start">
+                    <div className="flex flex-col gap-2 self-start ">
                         <label
                             htmlFor="copies"
                             className="text-myYellow  font-bold"
@@ -283,7 +283,7 @@ const Page = () => {
                             name="copies"
                             value={data.copies}
                             placeholder="Copies"
-                            className="py-2 px-4 rounded-lg bg-transparent border-2 border-dirtyWhite focus:outline-none  text-dirtyWhite font-semibold self-start"
+                            className="py-2 px-4 rounded-lg bg-transparent border-2 border-dirtyWhite focus:outline-none  text-dirtyWhite font-semibold "
                             onChange={(e) =>
                                 setData((prevData) => ({
                                     ...prevData,

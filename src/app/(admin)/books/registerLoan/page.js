@@ -26,7 +26,7 @@ const Page = () => {
                 <div className="text-myGreen font-bold self-center text-xl">
                     Register Loan
                 </div>
-                <form className="flex flex-col gap-6 w-4/5 h-full self-center ">
+                <form className="flex flex-col gap-6 min-w-[350px] w-2/5  h-full self-center ">
                     <div className="flex flex-col">
                         <label
                             htmlFor="name"
