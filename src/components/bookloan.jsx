@@ -2,7 +2,9 @@
 import React, { useState } from "react";
 import { IoCheckmarkCircleOutline } from "react-icons/io5";
 import { MdOutlineCancel } from "react-icons/md";
-const Bookloan = ({ session, book }) => {
+import { useSession } from "next-auth/react";
+const Bookloan = ({ book }) => {
+    const { data: session } = useSession();
     const [returned, setReturned] = useState(false);
     return (
         <div className="flex justify-between px-6 py-4 bg-dirtyWhite items-center rounded-md">
@@ -34,13 +36,13 @@ const Bookloan = ({ session, book }) => {
             <div className="grow-0 shrink-0 basis-1/5 flex flex-col items-center text-sm">
                 <h4 className="text-myOrange font-semibold">Status</h4>
                 <button
-                    disabled={session.user.role === "STUDENT"}
+                    // disabled={session.user.role === "ADMIN"}
                     onClick={() => setReturned(!returned)}
                     className={` font-semibold ${
-                        returned ? "text-myGreen" : "text-myYellow"
+                        book.returnStatus ? "text-myGreen" : "text-myYellow"
                     } rounded-md px-2 py-1`}
                 >
-                    {returned ? (
+                    {book.returnStatus ? (
                         <IoCheckmarkCircleOutline size={20} />
                     ) : (
                         <MdOutlineCancel size={20} />

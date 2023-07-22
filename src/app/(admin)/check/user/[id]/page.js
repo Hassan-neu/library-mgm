@@ -4,9 +4,8 @@ import Profilecard from "@/components/profilecard";
 import TabBtn from "@/components/tabbtn";
 import Bookloan from "@/components/bookloan";
 import History from "@/components/history";
-import { useSession } from "next-auth/react";
+
 const Page = ({ params: { id } }) => {
-    const { data: session } = useSession();
     const [data, setData] = useState({});
     const [tab, setTab] = useState("Loan History");
     const getData = useCallback(async () => {
@@ -53,11 +52,7 @@ const Page = ({ params: { id } }) => {
                         {tab === "Loan History" && (
                             <>
                                 {data.loan?.map((book) => (
-                                    <Bookloan
-                                        key={book.id}
-                                        book={book}
-                                        session={session}
-                                    />
+                                    <Bookloan key={book.id} book={book} />
                                 ))}
                             </>
                         )}
