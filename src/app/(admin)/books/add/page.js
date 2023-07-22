@@ -20,10 +20,12 @@ const Page = () => {
         formData.append("genre", data.genre);
         formData.append("image", data.image);
         formData.append("copies", data.copies);
-        const bookPost = await fetch("http://localhost:3000/api/book", {
+        const addBook = await fetch("http://localhost:3000/api/book", {
             method: "POST",
             body: formData,
         }).then((res) => res.json());
+        addBook.error && alert(addBook.message);
+        console.log(addBook);
         setData({
             title: "",
             author: "",
@@ -39,7 +41,7 @@ const Page = () => {
     }
     return (
         <main className="min-h-screen px-8 py-4 bg-myGreen">
-            <div className="flex min-h-screen flex-col gap-8">
+            <div className="flex w-3/5 min-h-screen flex-col gap-8 my-0 mx-auto">
                 <div className="text-myYellow font-bold self-center text-xl">
                     Add New Book
                 </div>
@@ -102,7 +104,7 @@ const Page = () => {
                                 id="fiction"
                                 name="genre"
                                 value="Fiction"
-                                className="checked:border-4 checked:border-myYellow border-2  appearance-none w-4 h-4 rounded-full"
+                                className="checked:border-4 checked:border-myYellow border-2  appearance-none w-4 h-4 rounded-full checker"
                                 onChange={(e) => {
                                     if (e.target.checked) {
                                         return setData((prevData) => ({
@@ -137,7 +139,7 @@ const Page = () => {
                                 id="non-fiction"
                                 name="genre"
                                 value="Non-Fiction"
-                                className="checked:border-4 checked:border-myYellow border-2  appearance-none w-4 h-4 rounded-full"
+                                className="checked:border-4 checked:border-myYellow border-2  appearance-none w-4 h-4 rounded-full checker"
                                 onChange={(e) => {
                                     if (e.target.checked) {
                                         return setData((prevData) => ({
@@ -172,7 +174,7 @@ const Page = () => {
                                 id="poetry"
                                 name="genre"
                                 value="Poetry"
-                                className="checked:border-4 checked:border-myYellow border-2  appearance-none w-4 h-4 rounded-full"
+                                className="checked:border-4 checked:border-myYellow border-2  appearance-none w-4 h-4 rounded-full checker"
                                 onChange={(e) => {
                                     if (e.target.checked) {
                                         return setData((prevData) => ({
@@ -203,7 +205,7 @@ const Page = () => {
                                 id="drama-play"
                                 name="genre"
                                 value="Drama/Play"
-                                className="checked:border-4 checked:border-myYellow border-2  appearance-none w-4 h-4 rounded-full"
+                                className="checked:border-4 checked:border-myYellow border-2  appearance-none w-4 h-4 rounded-full checker"
                                 onChange={(e) => {
                                     if (e.target.checked) {
                                         return setData((prevData) => ({
@@ -237,7 +239,7 @@ const Page = () => {
                                 id="science"
                                 name="genre"
                                 value="science"
-                                className="checked:border-4 checked:border-myYellow border-2  appearance-none w-4 h-4 rounded-full"
+                                className="checked:border-4 checked:border-myYellow border-2  appearance-none w-4 h-4 rounded-full checker"
                                 onChange={(e) => {
                                     if (e.target.checked) {
                                         return setData((prevData) => ({

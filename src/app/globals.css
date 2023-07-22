@@ -14,4 +14,7 @@
 .btn:hover .tooltip {
     display: block;
 }
+.checker:checked + label {
+    color: var(--primaryYellow);
+}
 @tailwind utilities;

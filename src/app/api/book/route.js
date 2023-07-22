@@ -7,6 +7,15 @@ export async function POST(req) {
         const genre = body.get("genre");
         const image = body.get("image");
         const copies = body.get("copies");
+        if (!title || !author || !genre || !image || !copies) {
+            return new Response(
+                JSON.stringify({
+                    error: true,
+                    message: "Required field missing",
+                }),
+                { status: 400 }
+            );
+        }
         const formData = new FormData();
         formData.append("file", image);
         formData.append("upload_preset", "my-uploads");

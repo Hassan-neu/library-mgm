@@ -13,7 +13,7 @@ const BooksPage = ({ books }) => {
             </header>
             <main className="min-h-screen w-full px-8 py-4">
                 <span className="h-24 w-full block"> </span>
-                <div className="w-full grid grid-cols-[repeat(auto-fill,minmax(230px,1fr))] grid-rows-[auto] gap-4">
+                <div className="w-full grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] grid-rows-[auto] gap-4">
                     {books.map((bk) => (
                         <Book key={bk.id} book={bk} />
                     ))}
