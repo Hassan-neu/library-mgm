@@ -25,7 +25,7 @@ const SignIn = () => {
     }
     return (
         <div className="w-screen h-screen bg-[url('/background/library.jpg')] bg-center bg-cover flex items-center justify-center">
-            <div className=" h-full w-1/2 flex items-center ml-auto px-16">
+            <div className=" h-full w-1/2 flex items-center ml-auto">
                 <div className="w-4/5 flex flex-col items-start justify-center gap-3">
                     <div className="text-dirtyWhite text-3xl font-extrabold">
                         <h3>LOGIN</h3>
@@ -56,7 +56,7 @@ const SignIn = () => {
                         />
                         <button
                             type="submit"
-                            className="mt-8 py-2 px-4 self-center bg-myOrange rounded-md text-dirtyWhite transition-transform active:scale-90"
+                            className="mt-8 py-2 px-4 self-end bg-myOrange rounded-md text-dirtyWhite transition-transform active:scale-90"
                         >
                             Log in
                         </button>

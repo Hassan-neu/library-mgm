@@ -12,7 +12,7 @@ export async function POST(req) {
                     studentId,
                 },
             });
-            const newLoan = await prisma.user.update({
+            const updateUser = await prisma.user.update({
                 where: {
                     libId: studentId,
                 },
@@ -24,7 +24,7 @@ export async function POST(req) {
                     },
                 },
             });
-            return new Response(JSON.stringify(newLoan), { status: 201 });
+            return new Response(JSON.stringify(updateUser), { status: 201 });
         }
     } catch (error) {
         return new Response(

@@ -15,7 +15,7 @@ const Book = ({ book }) => {
             </div>
 
             {/* check how the lower box reacts to changes later on since the h-full has been removed */}
-            <div className="flex flex-col bg-myGreen h-[80px]">
+            <div className="flex flex-col bg-myGreen h-max">
                 <h3 className="flex flex-col text-myGreen px-4 bg-dirtyWhite rounded-bl-lg">
                     <span className="font-semibold">{title}</span>
                     <span className="text-xs self-end font-semibold">
@@ -25,7 +25,7 @@ const Book = ({ book }) => {
                 <div className="flex justify-between items-center h-full">
                     <span className="h-full bg-myOrange">
                         <span className="px-2 py-1 h-full rounded-tr-lg flex items-center bg-myGreen">
-                            <span className="w-4 h-4 rounded-full bg-myYellow">
+                            <span className="w-3 h-3 rounded-full bg-myYellow">
                                 {" "}
                             </span>
                         </span>
