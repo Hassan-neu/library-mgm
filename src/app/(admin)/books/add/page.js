@@ -51,14 +51,14 @@ const Page = () => {
                             htmlFor="title"
                             className="text-myYellow  font-bold"
                         >
-                            Book Name
+                            Book Title
                         </label>
                         <input
                             type="text"
                             id="title"
                             name="title"
                             value={data.title}
-                            placeholder="Book"
+                            placeholder="Book Title"
                             className="py-2 px-4 rounded-lg bg-transparent border-2 border-dirtyWhite focus:outline-none text-dirtyWhite font-semibold"
                             onChange={(e) =>
                                 setData((prevData) => ({

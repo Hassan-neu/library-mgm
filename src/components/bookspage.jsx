@@ -8,7 +8,7 @@ import { VscSignOut } from "react-icons/vsc";
 const BooksPage = ({ books }) => {
     return (
         <>
-            <header className="fixed top-0 w-full">
+            <header className="fixed top-0 w-full z-50">
                 <Navbar />
             </header>
             <main className="min-h-screen w-full px-8 py-4">
