@@ -19,13 +19,13 @@ const Book = ({ book }) => {
                 <h3 className="flex flex-col text-myGreen px-4 bg-dirtyWhite rounded-bl-lg">
                     <span
                         className={`relative font-semibold ${
-                            title.length > 30 ? "titlehover" : ""
+                            title.length > 30 ? "titlehover cursor-pointer" : ""
                         }`}
                     >
                         {title.length > 30 ? `${title.slice(0, 26)}...` : title}
                         {title.length > 30 && (
-                            <p className="absolute hidden text-xs -top-2 bg-white">
-                                {title.slice(-title.length + 26)}
+                            <p className="absolute hidden text-[13px] text-center bg-white top-0 -translate-y-5 px-[.5em] rounded-md w-full">
+                                {title}
                             </p>
                         )}
                     </span>

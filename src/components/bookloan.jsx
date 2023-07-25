@@ -36,7 +36,7 @@ const Bookloan = ({ book }) => {
             <div className="grow-0 shrink-0 basis-1/5 flex flex-col items-center text-sm">
                 <h4 className="text-myOrange font-semibold">Status</h4>
                 <button
-                    // disabled={session.user.role === "ADMIN"}
+                    disabled={session.user.role === "STUDENT"}
                     onClick={() => setReturned(!returned)}
                     className={` font-semibold ${
                         book.returnStatus ? "text-myGreen" : "text-myYellow"

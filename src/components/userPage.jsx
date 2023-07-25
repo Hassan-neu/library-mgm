@@ -37,7 +37,9 @@ const UserPage = ({ session }) => {
                 <div className="text-myGreen font-bold text-xl self-center">
                     STUDENT PROFILE
                 </div>
+
                 <Profilecard data={data} />
+
                 {session.user.role === "ADMIN" && (
                     <div className="flex gap-3 self-end">
                         <Button className="py-2 px-4 bg-myYellow text-myGreen rounded-md">
