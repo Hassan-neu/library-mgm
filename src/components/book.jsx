@@ -24,7 +24,7 @@ const Book = ({ book }) => {
                     >
                         {title.length > 30 ? `${title.slice(0, 26)}...` : title}
                         {title.length > 30 && (
-                            <p className="absolute hidden text-[13px] text-center bg-white top-0 -translate-y-5 px-[.5em] rounded-md w-full">
+                            <p className="absolute hidden text-[13px] text-center bg-dirtyWhite top-0 -translate-y-5 px-[.5em] rounded-md w-full">
                                 {title}
                             </p>
                         )}

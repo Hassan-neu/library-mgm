@@ -24,7 +24,7 @@ const SignIn = () => {
         setMsg(data.error);
     }
     return (
-        <div className="w-screen h-screen bg-[url('/background/library.jpg')] bg-center bg-cover flex items-center justify-center">
+        <div className="w-screen h-screen bg-[url('/background/library.jpg')] bg-gray-900 bg-blend-color-dodge bg-center bg-cover flex items-center justify-center">
             <div className=" h-full w-1/2 flex items-center ml-auto">
                 <div className="w-4/5 flex flex-col items-start justify-center gap-3">
                     <div className="text-dirtyWhite text-3xl font-extrabold">
@@ -56,7 +56,7 @@ const SignIn = () => {
                         />
                         <button
                             type="submit"
-                            className="mt-8 py-2 px-4 self-end bg-myOrange rounded-md text-dirtyWhite transition-transform active:scale-90"
+                            className="mt-8 py-1 px-4 self-end bg-myOrange rounded-md text-dirtyWhite transition-transform active:scale-90"
                         >
                             Log in
                         </button>
