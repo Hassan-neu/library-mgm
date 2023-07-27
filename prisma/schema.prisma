@@ -55,6 +55,7 @@ model User {
   accounts   Account[]
   sessions   Session[]
   loans      Loan[]
+  visits     Visit[]
 }
 
 model Book {
@@ -76,6 +77,14 @@ model Loan {
   returnStatus  Boolean  @default(false)
   studentId     String
   student       User     @relation(fields: [studentId], references: [libId])
+}
+
+model Visit {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  entry     DateTime
+  exit      DateTime?
+  studentId String
+  student   User      @relation(fields: [studentId], references: [libId])
 }
 
 model VerificationToken {

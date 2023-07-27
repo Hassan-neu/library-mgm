@@ -25,7 +25,7 @@ const Profilecard = ({ data }) => {
                 </div>
                 <div className="text-dirtyWhite font-semibold flex gap-2">
                     <h4 className="uppercase">Uid:</h4>
-                    <p>{data.libId}</p>
+                    <p>{data.libId?.toUpperCase()}</p>
                 </div>
                 <div className="text-dirtyWhite font-semibold flex gap-2">
                     <h4 className="uppercase">Faculty:</h4>
