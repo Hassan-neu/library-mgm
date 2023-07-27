@@ -8,7 +8,8 @@ export async function GET(req) {
                 libId: loginId,
             },
             include: {
-                loan: true,
+                loans: true,
+                visits: true,
             },
         });
         return new Response(JSON.stringify(user), { status: 200 });

@@ -11,19 +11,7 @@ export async function POST(req) {
                     studentId,
                 },
             });
-            const updateUser = await prisma.user.update({
-                where: {
-                    libId: studentId,
-                },
-                data: {
-                    visits: {
-                        connect: {
-                            id: visit.id,
-                        },
-                    },
-                },
-            });
-            return new Response(JSON.stringify(updateUser), { status: 201 });
+            return new Response(JSON.stringify(visit), { status: 201 });
         }
     } catch (error) {
         return new Response(

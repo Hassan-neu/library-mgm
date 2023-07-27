@@ -57,7 +57,7 @@ const UserPage = ({ session }) => {
                     <div className="flex flex-col gap-2">
                         {tab === "Loan History" && (
                             <>
-                                {data.loan?.map((book) => (
+                                {data.loans?.map((book) => (
                                     <Bookloan
                                         key={book.id}
                                         book={book}
