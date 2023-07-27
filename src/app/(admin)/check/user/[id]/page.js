@@ -4,7 +4,9 @@ import Profilecard from "@/components/profilecard";
 import TabBtn from "@/components/tabbtn";
 import Bookloan from "@/components/bookloan";
 import History from "@/components/history";
-
+import Button from "@/components/button";
+import { BiHomeCircle } from "react-icons/bi";
+import Link from "next/link";
 const Page = ({ params: { id } }) => {
     const [data, setData] = useState({});
     const [tab, setTab] = useState("Loan History");
@@ -29,10 +31,26 @@ const Page = ({ params: { id } }) => {
     return (
         <main className="min-h-screen px-8 py-4">
             <div className="flex min-h-screen flex-col gap-8">
-                <div className="text-myGreen font-bold text-xl self-center">
-                    STUDENT PROFILE
+                <div className="flex items-center ">
+                    <Button className="text-myOrange  ml-0 text-sm gap-2">
+                        <Link href="/" className="flex items-center">
+                            <BiHomeCircle size={25} />
+                        </Link>
+                    </Button>
+
+                    <div className="text-myGreen font-bold text-xl ml-96">
+                        STUDENT PROFILE
+                    </div>
                 </div>
                 <Profilecard data={data} />
+                <div className="flex gap-3 self-end">
+                    <Button className="py-1 px-4 bg-myOrange text-dirtyWhite rounded-md font-semibold active:scale-95">
+                        Check In
+                    </Button>
+                    <Button className="py-1 px-4 text-myOrange border border-myOrange rounded-md font-semibold active:scale-95">
+                        Check Out
+                    </Button>
+                </div>
                 <div className="flex flex-col gap-4">
                     <div className="flex gap-4  uppercase">
                         <TabBtn
@@ -56,7 +74,7 @@ const Page = ({ params: { id } }) => {
                                 ))}
                             </>
                         )}
-                        {/* {tab === "Library Log" && (
+                        {tab === "Library Log" && (
                             <>
                                 <History />
                                 <History />
@@ -65,7 +83,7 @@ const Page = ({ params: { id } }) => {
                                 <History />
                                 <History />
                             </>
-                        )} */}
+                        )}
                     </div>
                 </div>
             </div>

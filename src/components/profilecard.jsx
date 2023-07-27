@@ -6,7 +6,7 @@ const Profilecard = ({ data }) => {
     return (
         <div className="py-4 px-5  w-full h-52 flex justify-between items-center bg-myOrange rounded-md">
             <div className="flex flex-col gap-2">
-                <div className="text-myGreen font-semibold flex gap-2">
+                <div className="text-dirtyWhite font-semibold flex gap-2">
                     {data.firstName ? (
                         <>
                             {" "}
@@ -19,19 +19,19 @@ const Profilecard = ({ data }) => {
                         <Loader />
                     )}
                 </div>
-                <div className="text-myGreen font-semibold flex gap-2">
+                <div className="text-dirtyWhite font-semibold flex gap-2">
                     <h4 className="uppercase">Level:</h4>
                     <p>{data.level}</p>
                 </div>
-                <div className="text-myGreen font-semibold flex gap-2">
+                <div className="text-dirtyWhite font-semibold flex gap-2">
                     <h4 className="uppercase">Uid:</h4>
                     <p>{data.libId}</p>
                 </div>
-                <div className="text-myGreen font-semibold flex gap-2">
+                <div className="text-dirtyWhite font-semibold flex gap-2">
                     <h4 className="uppercase">Faculty:</h4>
                     <p>{data.faculty}</p>
                 </div>
-                <div className="text-myGreen font-semibold flex gap-2">
+                <div className="text-dirtyWhite font-semibold flex gap-2">
                     <h4 className="uppercase">Department:</h4>
                     <p>{data.department}</p>
                 </div>

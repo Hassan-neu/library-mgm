@@ -14,19 +14,13 @@ const Bookloan = ({ book }) => {
             <div className="grow-0 shrink-0 basis-1/5 flex flex-col items-center text-sm">
                 <h4 className="text-myOrange font-semibold">Fetch</h4>
                 <p className="text-myGreen font-semibold">
-                    {new Date(book.dateCollected)
-                        .toLocaleDateString()
-                        .split("/")
-                        .join("-")}
+                    {new Date(book.dateCollected).toLocaleDateString()}
                 </p>
             </div>
             <div className="grow-0 shrink-0 basis-1/5 flex flex-col items-center text-sm">
                 <h4 className="text-myOrange font-semibold">Due</h4>
                 <p className="text-myGreen font-semibold">
-                    {new Date(book.dueDate)
-                        .toLocaleDateString()
-                        .split("/")
-                        .join("-")}
+                    {new Date(book.dueDate).toLocaleDateString()}
                 </p>
             </div>
             <div className="grow-0 shrink-0 basis-1/5 flex flex-col items-center text-sm">
