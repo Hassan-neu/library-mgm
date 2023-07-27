@@ -42,14 +42,14 @@ const Page = () => {
     return (
         <main className="min-h-screen px-8 py-4 bg-dirtyWhite">
             <div className="flex  min-h-screen flex-col gap-8">
-                <div className="text-myOrange font-bold self-center text-xl">
+                <div className="text-myGreen font-bold self-center text-xl">
                     Add New Book
                 </div>
                 <form className="flex min-w-[350px] w-2/5 flex-col gap-6 h-full self-center ">
                     <div className="flex flex-col gap-2">
                         <label
                             htmlFor="title"
-                            className="text-myOrange  font-bold"
+                            className="text-myGreen  font-bold"
                         >
                             Book Title
                         </label>
@@ -71,7 +71,7 @@ const Page = () => {
                     <div className="flex flex-col gap-2">
                         <label
                             htmlFor="author"
-                            className="text-myOrange  font-bold"
+                            className="text-myGreen  font-bold"
                         >
                             Author
                         </label>
@@ -95,7 +95,7 @@ const Page = () => {
                         className="border-2 border-myGreen px-4 py-2 flex flex-col gap-2 rounded-lg self-start"
                         ref={field}
                     >
-                        <legend className="text-myOrange font-bold">
+                        <legend className="text-myGreen font-bold">
                             Genre
                         </legend>
                         <div className="flex items-center gap-2">
@@ -275,7 +275,7 @@ const Page = () => {
                     <div className="flex flex-col gap-2 self-start ">
                         <label
                             htmlFor="copies"
-                            className="text-myOrange  font-bold"
+                            className="text-myGreen  font-bold"
                         >
                             Book Copies
                         </label>
@@ -298,7 +298,7 @@ const Page = () => {
                     <div className="flex flex-col gap-2">
                         <label
                             htmlFor="image"
-                            className="text-myOrange font-bold"
+                            className="text-myGreen font-bold"
                         >
                             Add Book Cover
                         </label>
@@ -321,7 +321,7 @@ const Page = () => {
                         onClick={(e) => {
                             onSubmit(e);
                         }}
-                        className="mt-4 py-2 px-8 bg-myOrange self-end text-dirtyWhite rounded-md"
+                        className="mt-4 py-2 px-8 bg-myGreen self-end text-dirtyWhite rounded-md"
                     >
                         <RiFolderUploadFill />
                     </button>

@@ -93,7 +93,7 @@ const UserPage = ({ session }) => {
             </div>
             <button
                 onClick={() => signOut()}
-                className="fixed right-5 bottom-6 text-myGreen rounded-lg p-3 font-bold bg-myOrange shadow-[0px_0px_0px_2px_#1b4f4a]"
+                className="fixed right-5 bottom-6 text-myGreen rounded-lg p-3 font-bold bg-myOrange shadow-[0px_0px_0px_2px_var(--primaryGreen)]"
             >
                 <VscSignOut size={20} />
             </button>
