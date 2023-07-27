@@ -54,7 +54,7 @@ model User {
   role       UserRole  @default(STUDENT)
   accounts   Account[]
   sessions   Session[]
-  loan       Loan[]
+  loans      Loan[]
 }
 
 model Book {

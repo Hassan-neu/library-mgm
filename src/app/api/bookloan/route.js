@@ -17,7 +17,7 @@ export async function POST(req) {
                     libId: studentId,
                 },
                 data: {
-                    loan: {
+                    loans: {
                         connect: {
                             id: createLoan.id,
                         },

@@ -40,16 +40,16 @@ const Page = () => {
         });
     }
     return (
-        <main className="min-h-screen px-8 py-4 bg-myGreen">
+        <main className="min-h-screen px-8 py-4 bg-dirtyWhite">
             <div className="flex  min-h-screen flex-col gap-8">
-                <div className="text-myYellow font-bold self-center text-xl">
+                <div className="text-myOrange font-bold self-center text-xl">
                     Add New Book
                 </div>
                 <form className="flex min-w-[350px] w-2/5 flex-col gap-6 h-full self-center ">
                     <div className="flex flex-col gap-2">
                         <label
                             htmlFor="title"
-                            className="text-myYellow  font-bold"
+                            className="text-myOrange  font-bold"
                         >
                             Book Title
                         </label>
@@ -59,7 +59,7 @@ const Page = () => {
                             name="title"
                             value={data.title}
                             placeholder="Book Title"
-                            className="py-2 px-4 rounded-lg bg-transparent border-2 border-dirtyWhite focus:outline-none text-dirtyWhite font-semibold"
+                            className="py-2 px-4 rounded-lg bg-transparent border-2 border-myGreen focus:outline-none text-myGreen font-semibold"
                             onChange={(e) =>
                                 setData((prevData) => ({
                                     ...prevData,
@@ -71,7 +71,7 @@ const Page = () => {
                     <div className="flex flex-col gap-2">
                         <label
                             htmlFor="author"
-                            className="text-myYellow  font-bold"
+                            className="text-myOrange  font-bold"
                         >
                             Author
                         </label>
@@ -81,7 +81,7 @@ const Page = () => {
                             name="author"
                             value={data.author}
                             placeholder="Author"
-                            className="py-2 px-4 rounded-lg bg-transparent border-2 border-dirtyWhite focus:outline-none  text-dirtyWhite font-semibold"
+                            className="py-2 px-4 rounded-lg bg-transparent border-2 border-myGreen focus:outline-none  text-myGreen font-semibold"
                             onChange={(e) =>
                                 setData((prevData) => ({
                                     ...prevData,
@@ -92,10 +92,10 @@ const Page = () => {
                     </div>
 
                     <fieldset
-                        className="border-2 border-dirtyWhite px-4 py-2 flex flex-col gap-2 rounded-lg self-start"
+                        className="border-2 border-myGreen px-4 py-2 flex flex-col gap-2 rounded-lg self-start"
                         ref={field}
                     >
-                        <legend className="text-myYellow font-bold">
+                        <legend className="text-myOrange font-bold">
                             Genre
                         </legend>
                         <div className="flex items-center gap-2">
@@ -104,7 +104,7 @@ const Page = () => {
                                 id="fiction"
                                 name="genre"
                                 value="Fiction"
-                                className="checked:border-4 checked:border-myYellow border-2  appearance-none w-4 h-4 rounded-full checker"
+                                className="checked:border-4 checked:border-myGreen border-2  appearance-none w-4 h-4 rounded-full "
                                 onChange={(e) => {
                                     if (e.target.checked) {
                                         return setData((prevData) => ({
@@ -127,7 +127,7 @@ const Page = () => {
                             />
                             <label
                                 htmlFor="fiction"
-                                className="text-dirtyWhite"
+                                className="text-myGreen font-semibold"
                             >
                                 Fiction
                             </label>
@@ -139,7 +139,7 @@ const Page = () => {
                                 id="non-fiction"
                                 name="genre"
                                 value="Non-Fiction"
-                                className="checked:border-4 checked:border-myYellow border-2  appearance-none w-4 h-4 rounded-full checker"
+                                className="checked:border-4 checked:border-myGreen border-2  appearance-none w-4 h-4 rounded-full "
                                 onChange={(e) => {
                                     if (e.target.checked) {
                                         return setData((prevData) => ({
@@ -162,7 +162,7 @@ const Page = () => {
                             />
                             <label
                                 htmlFor="non-fiction"
-                                className="text-dirtyWhite"
+                                className="text-myGreen font-semibold"
                             >
                                 Non-Fiction
                             </label>
@@ -174,7 +174,7 @@ const Page = () => {
                                 id="poetry"
                                 name="genre"
                                 value="Poetry"
-                                className="checked:border-4 checked:border-myYellow border-2  appearance-none w-4 h-4 rounded-full checker"
+                                className="checked:border-4 checked:border-myGreen border-2  appearance-none w-4 h-4 rounded-full "
                                 onChange={(e) => {
                                     if (e.target.checked) {
                                         return setData((prevData) => ({
@@ -195,7 +195,10 @@ const Page = () => {
                                     }
                                 }}
                             />
-                            <label htmlFor="poetry" className="text-dirtyWhite">
+                            <label
+                                htmlFor="poetry"
+                                className="text-myGreen font-semibold"
+                            >
                                 Poetry
                             </label>
                         </div>
@@ -205,7 +208,7 @@ const Page = () => {
                                 id="drama-play"
                                 name="genre"
                                 value="Drama/Play"
-                                className="checked:border-4 checked:border-myYellow border-2  appearance-none w-4 h-4 rounded-full checker"
+                                className="checked:border-4 checked:border-myGreen border-2  appearance-none w-4 h-4 rounded-full "
                                 onChange={(e) => {
                                     if (e.target.checked) {
                                         return setData((prevData) => ({
@@ -228,7 +231,7 @@ const Page = () => {
                             />
                             <label
                                 htmlFor="drama-play"
-                                className="text-dirtyWhite"
+                                className="text-myGreen font-semibold"
                             >
                                 Drama / Play
                             </label>
@@ -239,7 +242,7 @@ const Page = () => {
                                 id="science"
                                 name="genre"
                                 value="science"
-                                className="checked:border-4 checked:border-myYellow border-2  appearance-none w-4 h-4 rounded-full checker"
+                                className="checked:border-4 checked:border-myGreen border-2  appearance-none w-4 h-4 rounded-full "
                                 onChange={(e) => {
                                     if (e.target.checked) {
                                         return setData((prevData) => ({
@@ -262,7 +265,7 @@ const Page = () => {
                             />
                             <label
                                 htmlFor="science"
-                                className="text-dirtyWhite"
+                                className="text-myGreen font-semibold"
                             >
                                 Science
                             </label>
@@ -272,7 +275,7 @@ const Page = () => {
                     <div className="flex flex-col gap-2 self-start ">
                         <label
                             htmlFor="copies"
-                            className="text-myYellow  font-bold"
+                            className="text-myOrange  font-bold"
                         >
                             Book Copies
                         </label>
@@ -283,7 +286,7 @@ const Page = () => {
                             name="copies"
                             value={data.copies}
                             placeholder="Copies"
-                            className="py-2 px-4 rounded-lg bg-transparent border-2 border-dirtyWhite focus:outline-none  text-dirtyWhite font-semibold "
+                            className="py-2 px-4 rounded-lg bg-transparent border-2 border-myGreen focus:outline-none  text-myGreen font-semibold "
                             onChange={(e) =>
                                 setData((prevData) => ({
                                     ...prevData,
@@ -295,7 +298,7 @@ const Page = () => {
                     <div className="flex flex-col gap-2">
                         <label
                             htmlFor="image"
-                            className="text-myYellow  font-bold"
+                            className="text-myOrange font-bold"
                         >
                             Add Book Cover
                         </label>
@@ -303,7 +306,7 @@ const Page = () => {
                             type="file"
                             id="image"
                             name="image"
-                            className=" text-dirtyWhite font-semibold"
+                            className=" text-myGreen font-semibold"
                             onChange={(e) =>
                                 setData((prevData) => ({
                                     ...prevData,
@@ -318,7 +321,7 @@ const Page = () => {
                         onClick={(e) => {
                             onSubmit(e);
                         }}
-                        className="mt-4 py-2 px-8 bg-myYellow self-end text-dirtyWhite rounded-md"
+                        className="mt-4 py-2 px-8 bg-myOrange self-end text-dirtyWhite rounded-md"
                     >
                         <RiFolderUploadFill />
                     </button>

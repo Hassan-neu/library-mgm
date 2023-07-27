@@ -10,7 +10,7 @@ const Book = ({ book }) => {
                     fill={true}
                     alt="book"
                     placeholder="blur"
-                    blurDataURL="iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg=="
+                    blurDataURL="iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8u027HgAG9QJf60yRfQAAAABJRU5ErkJggg=="
                 />
             </div>
 

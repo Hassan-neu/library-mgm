@@ -21,7 +21,7 @@ const Page = () => {
         });
     }
     return (
-        <main className="min-h-screen px-8 py-4 bg-myYellow bg-opacity-80">
+        <main className="min-h-screen px-8 py-4 bg-dirtyWhite bg-opacity-80">
             <div className="flex min-h-screen flex-col gap-8">
                 <div className="text-myGreen font-bold self-center text-xl">
                     Register Loan
@@ -32,7 +32,7 @@ const Page = () => {
                             htmlFor="name"
                             className="text-myGreen ml-4 font-bold"
                         >
-                            Book Name
+                            Book Title
                         </label>
                         <input
                             type="text"
@@ -40,7 +40,7 @@ const Page = () => {
                             name="title"
                             value={data.bookTitle}
                             placeholder="Book"
-                            className="py-2 px-4 rounded-lg bg-transparent border-2 border-myGreen focus:outline-none text-dirtyWhite font-semibold"
+                            className="py-2 px-4 rounded-lg bg-transparent border-2 border-myGreen focus:outline-none text-myGreen font-semibold"
                             onChange={(e) =>
                                 setData((prevData) => ({
                                     ...prevData,
@@ -62,7 +62,7 @@ const Page = () => {
                             name="author"
                             value={data.bookAuthor}
                             placeholder="Author"
-                            className="py-2 px-4 rounded-lg bg-transparent border-2 border-myGreen focus:outline-none  text-dirtyWhite font-semibold"
+                            className="py-2 px-4 rounded-lg bg-transparent border-2 border-myGreen focus:outline-none  text-myGreen font-semibold"
                             onChange={(e) =>
                                 setData((prevData) => ({
                                     ...prevData,
@@ -84,7 +84,7 @@ const Page = () => {
                             name="studentid"
                             value={data.studentId}
                             placeholder="Student ID"
-                            className="py-2 px-4 rounded-lg bg-transparent border-2 border-myGreen focus:outline-none  text-dirtyWhite font-semibold"
+                            className="py-2 px-4 rounded-lg bg-transparent border-2 border-myGreen focus:outline-none  text-myGreen font-semibold"
                             onChange={(e) =>
                                 setData((prevData) => ({
                                     ...prevData,
@@ -106,7 +106,7 @@ const Page = () => {
                             name="dueDate"
                             value={data.dueDate}
                             className="py-2 px-4 
-                            rounded-lg bg-transparent border-2 border-myGreen focus:outline-none  text-dirtyWhite font-semibold"
+                            rounded-lg bg-transparent border-2 border-myGreen focus:outline-none  text-myGreen font-semibold"
                             onChange={(e) =>
                                 setData((prevData) => ({
                                     ...prevData,

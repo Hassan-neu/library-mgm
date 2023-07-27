@@ -17,8 +17,4 @@
 .titlehover:hover p {
     display: block;
 }
-.checker:checked + label {
-    text-decoration: underline dotted var(--primaryYellow);
-    text-underline-offset: 5px;
-}
 @tailwind utilities;
