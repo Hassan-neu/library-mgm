@@ -58,22 +58,15 @@ const UserPage = ({ session }) => {
                         {tab === "Loan History" && (
                             <>
                                 {data.loans?.map((book) => (
-                                    <Bookloan
-                                        key={book.id}
-                                        book={book}
-                                        session={session}
-                                    />
+                                    <Bookloan key={book.id} book={book} />
                                 ))}
                             </>
                         )}
                         {tab === "Library Log" && (
                             <>
-                                <History />
-                                <History />
-                                <History />
-                                <History />
-                                <History />
-                                <History />
+                                {data.visits?.map((visit) => (
+                                    <History key={visit.id} visit={visit} />
+                                ))}
                             </>
                         )}
                     </div>

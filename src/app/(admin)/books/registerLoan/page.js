@@ -1,4 +1,5 @@
 "use client";
+import Button from "@/components/button";
 import React, { useState } from "react";
 import { BiSave } from "react-icons/bi";
 const Page = () => {
@@ -115,8 +116,7 @@ const Page = () => {
                             }
                         />
                     </div>
-                    <button
-                        type="submit"
+                    <Button
                         onClick={(e) => {
                             e.preventDefault();
                             onSubmit();
@@ -124,7 +124,7 @@ const Page = () => {
                         className="mt-4 py-2 px-8 bg-myGreen self-end text-dirtyWhite rounded-md"
                     >
                         <BiSave />
-                    </button>
+                    </Button>
                 </form>
             </div>
         </main>

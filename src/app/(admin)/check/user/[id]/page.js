@@ -9,7 +9,23 @@ import { BiHomeCircle } from "react-icons/bi";
 import Link from "next/link";
 const Page = ({ params: { id } }) => {
     const [data, setData] = useState({});
+    const [checkIn, setCheckIn] = useState({ entry: "", studentId: id });
     const [tab, setTab] = useState("Loan History");
+    const log = useCallback(async () => {
+        const options = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(checkIn),
+        };
+        const res = await fetch(`http://localhost:3000/api/visit`, options);
+        const checkedIn = await res.json();
+        console.log(checkedIn);
+    }, [checkIn]);
+    useEffect(() => {
+        log();
+    }, [log]);
     const getData = useCallback(async () => {
         const options = {
             method: "GET",
@@ -44,7 +60,15 @@ const Page = ({ params: { id } }) => {
                 </div>
                 <Profilecard data={data} />
                 <div className="flex gap-3 self-end">
-                    <Button className="py-1 px-4 bg-myOrange text-dirtyWhite rounded-md font-semibold active:scale-95">
+                    <Button
+                        className="py-1 px-4 bg-myOrange text-dirtyWhite rounded-md font-semibold active:scale-95"
+                        onClick={() =>
+                            setCheckIn((prevCheck) => ({
+                                ...prevCheck,
+                                entry: Date.now(),
+                            }))
+                        }
+                    >
                         Check In
                     </Button>
                     <Button className="py-1 px-4 text-myOrange border border-myOrange rounded-md font-semibold active:scale-95">
@@ -76,12 +100,9 @@ const Page = ({ params: { id } }) => {
                         )}
                         {tab === "Library Log" && (
                             <>
-                                <History />
-                                <History />
-                                <History />
-                                <History />
-                                <History />
-                                <History />
+                                {data.visits?.map((visit) => (
+                                    <History key={visit.id} visit={visit} />
+                                ))}
                             </>
                         )}
                     </div>
