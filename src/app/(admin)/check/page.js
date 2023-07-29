@@ -16,7 +16,7 @@ const Page = () => {
     return (
         <main className="flex min-h-screen">
             <div className="w-screen h-screen bg-[url('/background/reading.jpg')] bg-center bg-cover flex items-center justify-center">
-                <div className="w-1/4 flex flex-col items-start justify-center gap-3">
+                <div className="min-w-[250px] w-1/5 flex flex-col items-start justify-center gap-3">
                     <div className="text-dirtyWhite text-2xl">
                         <h3>Check User</h3>
                     </div>
@@ -35,7 +35,7 @@ const Page = () => {
 
                         <button
                             type="submit"
-                            className="mt-4 py-2 px-14 self-end bg-myOrange rounded-md text-dirtyWhite"
+                            className="mt-4 py-2 px-5 self-end bg-myOrange rounded-md text-dirtyWhite"
                         >
                             Check
                         </button>

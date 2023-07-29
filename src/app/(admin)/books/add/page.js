@@ -1,6 +1,4 @@
 "use client";
-import Button from "@/components/button";
-import Image from "next/image";
 import React, { useState, useRef, useEffect } from "react";
 import { RiFolderUploadFill } from "react-icons/ri";
 const Page = () => {
@@ -32,7 +30,7 @@ const Page = () => {
             author: "",
             genre: [],
             image: "",
-            copies: 0,
+            copies: 1,
         });
         Array.from(field.current.elements).map((input) => {
             if (input.checked) {
@@ -317,14 +315,15 @@ const Page = () => {
                         />
                     </div>
 
-                    <Button
+                    <button
+                        type="submit"
                         onClick={(e) => {
                             onSubmit(e);
                         }}
                         className="mt-4 py-2 px-8 bg-myGreen self-end text-dirtyWhite rounded-md"
                     >
                         <RiFolderUploadFill />
-                    </Button>
+                    </button>
                 </form>
             </div>
         </main>
