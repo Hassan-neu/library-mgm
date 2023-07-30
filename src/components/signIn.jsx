@@ -1,23 +1,21 @@
 "use client";
 import React, { useState } from "react";
 import { signIn } from "next-auth/react";
-import { useFormik } from "formik";
 import { useRouter } from "next/navigation";
+import Button from "./button";
 const SignIn = () => {
     const [msg, setMsg] = useState("");
-    const router = useRouter();
-    const formik = useFormik({
-        initialValues: {
-            loginId: "",
-            password: "",
-        },
-        onSubmit,
+    const [user, setUser] = useState({
+        loginId: "",
+        password: "",
     });
-    async function onSubmit(values) {
+    const router = useRouter();
+    async function onSubmit(e) {
+        e.preventDefault();
         const data = await signIn("credentials", {
             redirect: false,
-            loginId: values.loginId,
-            password: values.password,
+            loginId: user.loginId,
+            password: user.password,
             callbackUrl: "/",
         });
         data.ok && router.push(data.url);
@@ -25,18 +23,23 @@ const SignIn = () => {
     }
     return (
         <div className="w-screen h-screen bg-[url('/background/library.jpg')] bg-gray-700 bg-blend-soft-light bg-center bg-cover flex items-center justify-center">
-            <div className=" h-full w-1/2 flex items-center ml-auto">
-                <div className="w-4/5 flex flex-col items-start justify-center gap-3">
+            <div className=" h-full w-1/4 flex items-center my-0 mx-auto">
+                <div className="w-full flex flex-col items-start justify-center gap-3">
                     <div className="text-dirtyWhite text-3xl font-extrabold">
                         <h3>LOGIN</h3>
                     </div>
                     <div className="text-white text-lg">
                         <p>Welcome to the Library</p>
                     </div>
-                    <p>{msg}</p>
+                    {msg && (
+                        <p className="text-red-500 bg-white p-[0.5em] rounded-md w-full text-sm">
+                            {msg}
+                        </p>
+                    )}
+
                     <form
                         className="flex flex-col gap-6 w-full h-full text-dirtyWhite"
-                        onSubmit={formik.handleSubmit}
+                        onSubmit={(e) => onSubmit(e)}
                     >
                         <input
                             type="text"
@@ -44,7 +47,12 @@ const SignIn = () => {
                             id="loginId"
                             placeholder="Login ID"
                             className="py-2 px-4 rounded-lg bg-transparent border-2 border-dirtyWhite focus:outline-none"
-                            {...formik.getFieldProps("loginId")}
+                            onChange={(e) =>
+                                setUser((prevUser) => ({
+                                    ...prevUser,
+                                    loginId: e.target.value,
+                                }))
+                            }
                         />
                         <input
                             type="password"
@@ -52,14 +60,16 @@ const SignIn = () => {
                             id="password"
                             placeholder="Password"
                             className="py-2 px-4 rounded-lg bg-transparent border-2 border-dirtyWhite focus:outline-none"
-                            {...formik.getFieldProps("password")}
+                            onChange={(e) =>
+                                setUser((prevUser) => ({
+                                    ...prevUser,
+                                    password: e.target.value,
+                                }))
+                            }
                         />
-                        <button
-                            type="submit"
-                            className="mt-8 py-1 px-4 self-end bg-myOrange rounded-md text-dirtyWhite transition-transform active:scale-90"
-                        >
+                        <Button className="py-1 px-4 self-end bg-myOrange rounded-md text-dirtyWhite transition-transform active:scale-90">
                             Log in
-                        </button>
+                        </Button>
                     </form>
                 </div>
             </div>

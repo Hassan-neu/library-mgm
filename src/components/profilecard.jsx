@@ -16,7 +16,12 @@ const Profilecard = ({ data }) => {
                             </p>
                         </>
                     ) : (
-                        <Loader />
+                        <Loader
+                            size={30}
+                            className={
+                                "h-6 w-28 text-dirtyWhite rounded-md flex"
+                            }
+                        ></Loader>
                     )}
                 </div>
                 <div className="text-dirtyWhite font-semibold flex gap-2">

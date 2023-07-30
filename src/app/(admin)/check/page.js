@@ -1,28 +1,23 @@
 "use client";
 import React, { useState } from "react";
-import { useFormik } from "formik";
 import { useRouter } from "next/navigation";
 const Page = () => {
+    const [loginId, setLoginId] = useState("");
     const router = useRouter();
-    const formik = useFormik({
-        initialValues: {
-            loginId: "",
-        },
-        onSubmit,
-    });
-    async function onSubmit(values) {
-        router.push(`/check/user/${values.loginId}`);
+    async function onSubmit(e) {
+        e.preventDefault();
+        router.push(`/check/user/${loginId}`);
     }
     return (
         <main className="flex min-h-screen">
-            <div className="w-screen h-screen bg-[url('/background/reading.jpg')] bg-center bg-cover flex items-center justify-center">
-                <div className="min-w-[250px] w-1/5 flex flex-col items-start justify-center gap-3">
+            <div className="w-screen h-screen bg-[url('/background/reading.jpg')] bg-gray-700 bg-blend-soft-light bg-center bg-cover flex items-center justify-center">
+                <div className="min-w-[300px] w-1/4 flex flex-col items-start justify-center gap-3">
                     <div className="text-dirtyWhite text-2xl">
                         <h3>Check User</h3>
                     </div>
                     <form
                         className="flex flex-col gap-6 w-full h-full text-dirtyWhite"
-                        onSubmit={formik.handleSubmit}
+                        onSubmit={(e) => onSubmit(e)}
                     >
                         <input
                             type="text"
@@ -30,7 +25,7 @@ const Page = () => {
                             name="loginId"
                             placeholder="Login ID"
                             className="py-2 px-4 rounded-lg bg-transparent border-2 border-dirtyWhite focus:outline-none"
-                            {...formik.getFieldProps("loginId")}
+                            onChange={(e) => setLoginId(e.target.value)}
                         />
 
                         <button

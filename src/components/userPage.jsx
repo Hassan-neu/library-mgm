@@ -7,6 +7,7 @@ import History from "./history";
 import Button from "./button";
 import { signOut } from "next-auth/react";
 import { VscSignOut } from "react-icons/vsc";
+import Loader from "./ui/loader";
 const UserPage = ({ session }) => {
     const {
         user: { libId },
@@ -39,8 +40,8 @@ const UserPage = ({ session }) => {
                 </div>
 
                 <Profilecard data={data} />
-                <div className="flex flex-col gap-4">
-                    <div className="flex gap-4  uppercase">
+                <div className="flex flex-col gap-4 grow">
+                    <div className="flex gap-4">
                         <TabBtn
                             isActive={tab === "Loan History"}
                             onClick={() => setTab("Loan History")}
@@ -54,12 +55,21 @@ const UserPage = ({ session }) => {
                             Library Log
                         </TabBtn>
                     </div>
-                    <div className="flex flex-col gap-2">
+                    <div className="flex flex-col gap-2 grow">
                         {tab === "Loan History" && (
                             <>
-                                {data.loans?.map((book) => (
-                                    <Bookloan key={book.id} book={book} />
-                                ))}
+                                {data.loans ? (
+                                    data.loans?.map((book) => (
+                                        <Bookloan key={book.id} book={book} />
+                                    ))
+                                ) : (
+                                    <Loader
+                                        className="flex flex-col items-center gap-2 m-auto text-myOrange"
+                                        size={50}
+                                    >
+                                        <p>Loading...</p>
+                                    </Loader>
+                                )}
                             </>
                         )}
                         {tab === "Library Log" && (

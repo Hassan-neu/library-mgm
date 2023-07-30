@@ -1,7 +1,12 @@
 import React from "react";
-
-const Loader = () => {
-    return <div className="h-6 w-28 bg-dirtyWhite rounded-md"> </div>;
+import { CgSpinner } from "react-icons/cg";
+const Loader = ({ children, size, className }) => {
+    return (
+        <div className={className}>
+            <CgSpinner size={size} className="animate-spin" />
+            {children}
+        </div>
+    );
 };
 
 export default Loader;

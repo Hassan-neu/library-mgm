@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { BiSave } from "react-icons/bi";
 const Page = () => {
+    const [msg, setMsg] = useState("");
     const [data, setData] = useState({
         bookTitle: "",
         bookAuthor: "",
@@ -13,12 +14,14 @@ const Page = () => {
             method: "POST",
             body: JSON.stringify(data),
         }).then((res) => res.json());
+        register.error && alert(register.message);
         setData({
             bookTitle: "",
             bookAuthor: "",
             studentId: "",
             dueDate: "",
         });
+        console.log(register);
     }
     return (
         <main className="min-h-screen px-8 py-4 bg-dirtyWhite bg-opacity-80">

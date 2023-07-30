@@ -4,6 +4,14 @@ export async function POST(req) {
         const body = await req.json();
         if (body) {
             const { bookTitle, bookAuthor, dueDate, studentId } = body;
+            if (bookTitle || bookAuthor || dueDate || studentId) {
+                return new Response(
+                    JSON.stringify({
+                        error: true,
+                        message: "Required field missing",
+                    })
+                );
+            }
             const createLoan = await prisma.loan.create({
                 data: {
                     bookTitle,

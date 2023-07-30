@@ -24,7 +24,7 @@ export const AuthOptions = {
                 }
                 const checkPassword = user.lastName === password;
                 if (!checkPassword || !user) {
-                    throw new Error("Password or Login ID incorrect");
+                    throw new Error("Incorrect Password or Login ID");
                 }
                 return user;
             },
