@@ -74,9 +74,18 @@ const UserPage = ({ session }) => {
                         )}
                         {tab === "Library Log" && (
                             <>
-                                {data.visits?.map((visit) => (
-                                    <History key={visit.id} visit={visit} />
-                                ))}
+                                {data.visits ? (
+                                    data.visits.map((visit) => (
+                                        <History key={visit.id} visit={visit} />
+                                    ))
+                                ) : (
+                                    <Loader
+                                        className="flex flex-col items-center gap-2 m-auto text-myOrange"
+                                        size={50}
+                                    >
+                                        <p>Loading...</p>
+                                    </Loader>
+                                )}
                             </>
                         )}
                     </div>

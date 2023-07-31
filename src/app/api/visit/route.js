@@ -25,16 +25,19 @@ export async function PUT(req) {
     try {
         const body = await req.json();
         if (body) {
-            const { exit } = body;
-            const findVisit = await prisma.visit.findFirst({
+            const { exit, studentId } = body;
+            const findVisit = await prisma.visit.findMany({
+                where: {
+                    studentId,
+                },
                 take: -1,
             });
             const updateVisit = await prisma.visit.update({
                 where: {
-                    id: findVisit.id,
+                    id: findVisit[0].id,
                 },
                 data: {
-                    exit,
+                    exit: new Date(exit).toISOString(),
                 },
             });
             return new Response(JSON.stringify(updateVisit), { status: 200 });

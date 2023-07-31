@@ -7,38 +7,28 @@ const Profilecard = ({ data }) => {
         <div className="py-4 px-5  w-full h-52 flex justify-between items-center bg-myOrange rounded-md">
             <div className="flex flex-col gap-2">
                 <div className="text-dirtyWhite font-semibold flex gap-2">
-                    {data.firstName ? (
-                        <>
-                            {" "}
-                            <h4 className="uppercase">Name:</h4>
-                            <p>
-                                {data.firstName} , {data.lastName}
-                            </p>
-                        </>
-                    ) : (
-                        <Loader
-                            size={30}
-                            className={
-                                "h-6 w-28 text-dirtyWhite rounded-md flex"
-                            }
-                        ></Loader>
-                    )}
+                    <h4 className="uppercase">Name:</h4>
+                    <p>
+                        {data.firstName
+                            ? `${data.firstName}, ${data.lastName}`
+                            : "..."}
+                    </p>
                 </div>
                 <div className="text-dirtyWhite font-semibold flex gap-2">
                     <h4 className="uppercase">Level:</h4>
-                    <p>{data.level}</p>
+                    <p>{data.level ? data.level : "..."}</p>
                 </div>
                 <div className="text-dirtyWhite font-semibold flex gap-2">
                     <h4 className="uppercase">Uid:</h4>
-                    <p>{data.libId?.toUpperCase()}</p>
+                    <p>{data.libId ? data.libId.toUpperCase() : "..."}</p>
                 </div>
                 <div className="text-dirtyWhite font-semibold flex gap-2">
                     <h4 className="uppercase">Faculty:</h4>
-                    <p>{data.faculty}</p>
+                    <p>{data.faculty ? data.faculty : "..."}</p>
                 </div>
                 <div className="text-dirtyWhite font-semibold flex gap-2">
                     <h4 className="uppercase">Department:</h4>
-                    <p>{data.department}</p>
+                    <p>{data.department ? data.department : "..."}</p>
                 </div>
             </div>
             <Image

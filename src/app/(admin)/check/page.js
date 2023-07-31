@@ -30,7 +30,7 @@ const Page = () => {
 
                         <button
                             type="submit"
-                            className="mt-4 py-2 px-5 self-end bg-myOrange rounded-md text-dirtyWhite"
+                            className="mt-4 py-1 px-4 self-end bg-myOrange rounded-md text-dirtyWhite"
                         >
                             Check
                         </button>
