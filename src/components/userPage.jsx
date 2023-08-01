@@ -36,7 +36,7 @@ const UserPage = ({ session }) => {
         <main className="min-h-screen w-full px-8 py-4">
             <div className="flex min-h-screen flex-col gap-8">
                 <div className="text-myGreen font-bold text-xl self-center">
-                    STUDENT PROFILE
+                    USER PROFILE
                 </div>
 
                 <Profilecard data={data} />

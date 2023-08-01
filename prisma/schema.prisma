@@ -39,7 +39,7 @@ model Session {
 
 enum UserRole {
   ADMIN
-  STUDENT
+  USER
 }
 
 model User {
@@ -51,7 +51,7 @@ model User {
   department String?
   libId      String    @unique
   image      String?
-  role       UserRole  @default(STUDENT)
+  role       UserRole  @default(USER)
   accounts   Account[]
   sessions   Session[]
   loans      Loan[]
@@ -75,16 +75,16 @@ model Loan {
   dateCollected DateTime @default(now())
   dueDate       DateTime
   returnStatus  Boolean  @default(false)
-  studentId     String
-  student       User     @relation(fields: [studentId], references: [libId])
+  userId        String
+  user          User     @relation(fields: [userId], references: [libId])
 }
 
 model Visit {
-  id        String    @id @default(auto()) @map("_id") @db.ObjectId
-  entry     DateTime
-  exit      DateTime?
-  studentId String
-  student   User      @relation(fields: [studentId], references: [libId])
+  id     String    @id @default(auto()) @map("_id") @db.ObjectId
+  entry  DateTime
+  exit   DateTime?
+  userId String
+  user   User      @relation(fields: [userId], references: [libId])
 }
 
 model VerificationToken {

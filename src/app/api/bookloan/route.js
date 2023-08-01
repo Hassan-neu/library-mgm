@@ -3,8 +3,8 @@ export async function POST(req) {
     try {
         const body = await req.json();
         if (body) {
-            const { bookTitle, bookAuthor, dueDate, studentId } = body;
-            if (bookTitle || bookAuthor || dueDate || studentId) {
+            const { bookTitle, bookAuthor, dueDate, libId } = body;
+            if (bookTitle || bookAuthor || dueDate || libId) {
                 return new Response(
                     JSON.stringify({
                         error: true,
@@ -17,7 +17,7 @@ export async function POST(req) {
                     bookTitle,
                     bookAuthor,
                     dueDate: new Date(dueDate).toISOString(),
-                    studentId,
+                    userId: libId,
                 },
             });
             return new Response(JSON.stringify(createLoan), { status: 201 });

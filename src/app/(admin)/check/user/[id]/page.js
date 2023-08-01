@@ -5,15 +5,14 @@ import TabBtn from "@/components/tabbtn";
 import Bookloan from "@/components/bookloan";
 import History from "@/components/history";
 import Button from "@/components/button";
-import { BiHomeCircle } from "react-icons/bi";
 import { HiOutlineBuildingLibrary } from "react-icons/hi2";
 import { MdOutlineLocalLibrary } from "react-icons/md";
 import Link from "next/link";
 import Loader from "@/components/ui/loader";
 const Page = ({ params: { id } }) => {
     const [data, setData] = useState({});
-    const [checkIn, setCheckIn] = useState({ entry: "", studentId: id });
-    const [checkOut, setCheckOut] = useState({ exit: "", studentId: id });
+    const [checkIn, setCheckIn] = useState({ entry: "", libId: id });
+    const [checkOut, setCheckOut] = useState({ exit: "", libId: id });
     const [tab, setTab] = useState("Loan History");
     async function check() {
         const options = {
@@ -58,7 +57,7 @@ const Page = ({ params: { id } }) => {
                     </Button>
 
                     <div className="text-myGreen font-bold text-xl">
-                        STUDENT PROFILE
+                        USER PROFILE
                     </div>
                     <div className="text-myOrange text-sm">
                         <MdOutlineLocalLibrary size={25} />

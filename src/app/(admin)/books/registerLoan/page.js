@@ -6,7 +6,7 @@ const Page = () => {
     const [data, setData] = useState({
         bookTitle: "",
         bookAuthor: "",
-        studentId: "",
+        libId: "",
         dueDate: "",
     });
     async function onSubmit() {
@@ -18,13 +18,13 @@ const Page = () => {
         setData({
             bookTitle: "",
             bookAuthor: "",
-            studentId: "",
+            libId: "",
             dueDate: "",
         });
         console.log(register);
     }
     return (
-        <main className="min-h-screen px-8 py-4 bg-dirtyWhite bg-opacity-80">
+        <main className="min-h-screen px-8 py-4">
             <div className="flex min-h-screen flex-col gap-8">
                 <div className="text-myGreen font-bold self-center text-xl">
                     Register Loan
@@ -79,19 +79,19 @@ const Page = () => {
                             htmlFor="author"
                             className="text-myGreen ml-4 font-bold"
                         >
-                            Student ID
+                            Library ID
                         </label>
                         <input
                             type="text"
-                            id="studentid"
-                            name="studentid"
-                            value={data.studentId}
-                            placeholder="Student ID"
+                            id="libid"
+                            name="libid"
+                            value={data.libId}
+                            placeholder="Library ID"
                             className="py-2 px-4 rounded-lg bg-transparent border-2 border-myGreen focus:outline-none  text-myGreen font-semibold"
                             onChange={(e) =>
                                 setData((prevData) => ({
                                     ...prevData,
-                                    studentId: e.target.value,
+                                    libId: e.target.value,
                                 }))
                             }
                         />

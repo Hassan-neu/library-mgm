@@ -24,13 +24,9 @@ const Bookloan = ({ book }) => {
                 </p>
             </div>
             <div className="grow-0 shrink-0 basis-1/5 flex flex-col items-center text-sm">
-                <h4 className="text-myOrange font-semibold">Time past</h4>
-                <p className="text-myGreen font-semibold">23 days</p>
-            </div>
-            <div className="grow-0 shrink-0 basis-1/5 flex flex-col items-center text-sm">
                 <h4 className="text-myOrange font-semibold">Status</h4>
                 <button
-                    disabled={session.user.role === "STUDENT"}
+                    disabled={session.user.role === "USER"}
                     onClick={() => setReturned(!returned)}
                     className={` font-semibold ${
                         book.returnStatus ? "text-myGreen" : "text-myYellow"

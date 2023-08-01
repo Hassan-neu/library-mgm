@@ -2,11 +2,11 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 const Page = () => {
-    const [loginId, setLoginId] = useState("");
+    const [libId, setLibId] = useState("");
     const router = useRouter();
     async function onSubmit(e) {
         e.preventDefault();
-        router.push(`/check/user/${loginId}`);
+        router.push(`/check/user/${libId}`);
     }
     return (
         <main className="flex min-h-screen">
@@ -21,11 +21,11 @@ const Page = () => {
                     >
                         <input
                             type="text"
-                            id="loginId"
-                            name="loginId"
-                            placeholder="Login ID"
+                            id="libId"
+                            name="libId"
+                            placeholder="Library ID"
                             className="py-2 px-4 rounded-lg bg-transparent border-2 border-dirtyWhite focus:outline-none"
-                            onChange={(e) => setLoginId(e.target.value)}
+                            onChange={(e) => setLibId(e.target.value)}
                         />
 
                         <button

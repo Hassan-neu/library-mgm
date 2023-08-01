@@ -8,7 +8,7 @@ const Page = () => {
         author: "",
         genre: [],
         image: "",
-        copies: 0,
+        copies: 1,
     });
 
     async function onSubmit(e) {
@@ -39,7 +39,7 @@ const Page = () => {
         });
     }
     return (
-        <main className="min-h-screen px-8 py-4 bg-dirtyWhite">
+        <main className="min-h-screen px-8 py-4">
             <div className="flex  min-h-screen flex-col gap-8">
                 <div className="text-myGreen font-bold self-center text-xl">
                     Add New Book

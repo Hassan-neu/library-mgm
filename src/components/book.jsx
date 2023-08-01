@@ -44,7 +44,7 @@ const Book = ({ book }) => {
 
                     <span className=" w-full h-full flex items-center  bg-myOrange rounded-bl-lg px-2 py-1 text-dirtyWhite capitalize text-right">
                         {genre.length > 2
-                            ? genre.slice(0, 2).join(", ")
+                            ? genre.slice(0, 2).join("-")
                             : genre.join()}
                     </span>
                 </div>

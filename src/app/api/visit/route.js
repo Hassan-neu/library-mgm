@@ -4,11 +4,11 @@ export async function POST(req) {
     try {
         const body = await req.json();
         if (body) {
-            const { entry, studentId } = body;
+            const { entry, libId } = body;
             const visit = await prisma.visit.create({
                 data: {
                     entry: new Date(entry).toISOString(),
-                    studentId,
+                    libId,
                 },
             });
             return new Response(JSON.stringify(visit), { status: 201 });
@@ -25,10 +25,10 @@ export async function PUT(req) {
     try {
         const body = await req.json();
         if (body) {
-            const { exit, studentId } = body;
+            const { exit, libId } = body;
             const findVisit = await prisma.visit.findMany({
                 where: {
-                    studentId,
+                    libId,
                 },
                 take: -1,
             });
